@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jardineria</title>
+    <link rel="stylesheet" href="style.css ">
     <link rel="shortcut icon" href="resources/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html">
                   <img src="resources/icon.png" width="35" height="35" alt="icon">Jardineria
@@ -29,8 +29,8 @@
                       Usuario
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="inicio.html">Iniciar Sesion</a></li>
-                      <li><a class="dropdown-item active" href="registro.html">Registrarse</a></li>
+                      <li><a class="dropdown-item active" href="inicio.html">Iniciar Sesion</a></li>
+                      <li><a class="dropdown-item " href="registro.html">Registrarse</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
@@ -43,53 +43,25 @@
     </header>
     <article>
         <section class="todo">
+          <section class="todo">
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-md-10 off-md-4">
+                    <div class="col-md-6 offset-md-3">
                         <div class="signup-form">
                             <form action="" class="mt-5 border p-4 bg-light shadow">
-                                <h3 class="mb-4">Registrarse</h3>
-                                <div class="row">
-                                <div class="mb-3 col-md-6">
-                                    <label for="txtNombre">Nombre<span class="text-danger">*</span></label>
-                                    <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese su Nombre" class="txtNombre form-control">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="txtApellido">Apellido<span class="text-danger">*</label>
-                                    <input type="text" id="txtApellido" name="txtApellido" placeholder="Ingrese su Apellido" class="txtApellido form-control">
-                                </div>
-                            </div>
-                                <div class="mb-3 col-md-12">
-                                    <label for="txtEmail">Email<span class="text-danger">*</label>
+                                <h3 class="mb-4">Recuperar contraseña</h3>
+                                <div class="mb-3 col-md-7">
+                                    <label for="txtEmail" class="mb-2">Ingrese su correo electronico para restablecer su contraseña<span class="text-danger">*</label></label>
                                     <input type="email" id="txtEmail" name="txtEmail" placeholder="Ingrese su Email" class="txtEmail form-control">
                                 </div>
-                                <div class="mb-3 col-md-12">
-                                    <label for="txtTel">Teléfono<span class="text-danger">*</label>
-                                    <input type="tel" id="txtTel" name="txtTel" placeholder="Ingrese su Teléfono" class="txtTel form-control">
-                                </div>
-                                <div class="mb-3 col-md-12">
-                                    <label for="fechaNac">Fecha Nacimiento<span class="text-danger">*</label>
-                                    <input type="date" id="fechaNac" name="fechaNac" class="fechaNac form-control">
-                                </div>
-                                <div class="row">
-                                <div class="mb-3 col-md-6">
-                                    <label for="txtPassword">Contraseña<span class="text-danger">*</label>
-                                    <input type="password" id="txtPassword" name="txtPassword" placeholder="Ingrese su Contraseña" class="txtPassword form-control">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="txtCPassword">Confirmar Contraseña<span class="text-danger">*</label>
-                                    <input type="password" id="txtCPassword" name="txtCPassword" placeholder="Confirme su Contraseña" class="txtCPassword form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-outline-dark">Registrarse</button>
+                                <div class="col-md-6">
+                                  <button type="button" class="btn btn-outline-dark">Enviar</button>
+                              </div>
                             </div>
                             </form>
-                            <p class="text-center mt-4 text-secondary">¿Ya tiene una cuenta? <a href="inicio.html">Ingrese aquí</a></p>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </article>
     <footer class="bg-dark text-center text-white p-1 mt-4">
