@@ -33,4 +33,11 @@ $(function() // public static void main (JAVa)
         clp.clear();
         usd.clear();
     })
+    let numeros = '1234567890.';
+    $(".txtCantidadCLP").keypress(function(e)
+    {
+        let caracter = String.fromCharCode(e.which);
+        if(numeros.indexOf(caracter) < 0)
+            return false;
+    })
 });
