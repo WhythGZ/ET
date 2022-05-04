@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="resources/icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="categorias.js"></script>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
@@ -44,7 +46,7 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="api.html" tabindex="-1" aria-disabled="true">Precio UTF</a>
+                    <a class="nav-link" href="api.html" tabindex="-1" aria-disabled="true">Precio USD</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mi Perfil</a>
@@ -73,7 +75,15 @@
     <article>
         <section>
           <div class="container">
-          <h3 class="mt-5">Herramientas</h3>
+            <div class="row mt-3">
+              <div class="offset-md-10 col-md-1">
+                <button class="btnCLP btn btn-outline-dark form-control">CLP</button>
+              </div>
+              <div class="col-md-1">
+                <button class="btnUSD btn btn-outline-success form-control">USD</button>
+              </div>
+            </div>
+          <h3 class="">Herramientas</h3>
           <p class="text-secondary">Encuentra todo tipo de herramientas para el cuidado de tu jardín: accesorios para limpieza y recolección de hojas, desmalezadores, palas y tijeras y tijerones para poda. Puedes potenciar el crecimiento de tu jardín con nuestros sistemas de riego.</p>
           <div class="row mt-3">
             <div class="col-md-3 border m-4">
@@ -81,7 +91,7 @@
             <img src="resources/herramienta1.jpg" width="250" height="250" alt="">            
             </a>
             <p class="text-center text-dark mt-2">Esta herramienta es ideal para cortar hierba o césped en lugares donde una podadora no puede acceder. La desbrozadora a gasolina Surtek DG752A tiene una potencia de 2.65 HP además de un arnés que hace más fácil llevarla a cualquier lugar.</p>
-            <h5 class="text-secondary text-center">$159.990</h5>
+            <h5 class="text-secondary text-center precio1">$159.990</h5>
             <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -95,7 +105,7 @@
             <img src="resources/Cortasetos.png" width="250" height="250" alt="">
             </a>
             <p class="text-center text-dark mt-3">Esta herramienta hace que podar árboles, setos y arbustos sea una tarea sencilla con poco esfuerzo. El cortasetos a gasolina Surtek H6024 tiene un motor de 2 tiempos con una potencia de 26 cc y sistema antivibración que garantizan un manejo muy práctico y cortes eficientes.</p>
-            <h5 class="text-secondary text-center">$69.990</h5>
+            <h5 class="text-secondary text-center precio2">$69.990</h5>
                         <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -109,7 +119,7 @@
             <img src="resources/tijeras.jpg" width="250" height="250" alt="">
             </a>
             <p class="text-center text-dark mt-3">Una de las herramientas clásicas e icónicas del oficio de la jardinería, realiza cortes limpios en la poda de árboles y arbustos. El modelo TSAG12 cuenta con topes amortiguadores que regulan el cierre y mangos ergonómicos que brindar un mejor agarre.</p>
-            <h5 class="text-secondary text-center">$15.990</h5>
+            <h5 class="text-secondary text-center precio3">$15.990</h5>
                         <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -125,7 +135,7 @@
               <img src="resources/pistola.jpg" width="250" height="250" alt="">
               </a>
             <p class="text-center text-dark mt-3">Accesorio básico de cualquier manguera que permite adaptar el chorro según la tarea que se deba realizar. Modelo 130340 cuenta con seguro de riego continuo y un diseño ergonómico y antiderrapante.</p>
-            <h5 class="text-secondary text-center">$4.990</h5>
+            <h5 class="text-secondary text-center precio4">$4.990</h5>
                         <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -139,7 +149,7 @@
               <img src="resources/escoba.jpg" width="250" height="250" alt="">
               </a>
             <p class="text-center text-dark mt-3">Su función es barrer materiales de poca consistencia como frutos caídos, hojas secas, hierba cortada etc. La escoba Surtek 132051 está hecha de Polipropileno de Alto Impacto, lo que la hace resistente y muy flexible.</p>
-            <h5 class="text-secondary text-center">$2.990</h5>
+            <h5 class="text-secondary text-center precio5">$2.990</h5>
                         <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -153,7 +163,7 @@
               <img src="resources/tijeras2.jpg" width="250" height="250" alt="">
               </a>
             <p class="text-center text-dark mt-3">Tijeras que proporcionan alcance a ramas que superan los 2 metros de altura. El modelo TRA21 posee un tope amortiguador que absorbe los impactos.</p>
-            <h5 class="text-secondary text-center">$11.990</h5>
+            <h5 class="text-secondary text-center precio6">$11.990</h5>
                         <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -169,7 +179,7 @@
               <img src="resources/cortacesped.jpg" width="250" height="250" alt="">
               </a>
             <p class="text-center text-dark mt-3">Recorta el césped de los jardines con una altura uniforme de manera sencilla e invirtiendo poco esfuerzo. El modelo PP520, podadora a gasolina que garantiza un bajo consumo de combustible con un rendimiento de 4 hrs de uso.</p>
-            <h5 class="text-secondary text-center">$99.990</h5>
+            <h5 class="text-secondary text-center precio7">$99.990</h5>
                         <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -183,7 +193,7 @@
               <img src="resources/soplahojas.jpg" width="250" height="250" alt="">
               </a>
             <p class="text-center text-dark mt-3">Esta herramienta permite recoger grandes cantidades de hojas caídas  en poco tiempo y con un esfuerzo mínimo. El modelo SAG532 su motor de dos tiempos funciona con gasolina y tiene una velocidad de 200 km/h.</p>
-            <h5 class="text-secondary text-center">$99.990</h5>
+            <h5 class="text-secondary text-center precio8">$99.990</h5>
             <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
@@ -197,7 +207,7 @@
               <img src="resources/portamanguera.jpg" width="250" height="250" alt="">
               </a>
             <p class="text-center text-dark mt-3">Lleva el agua a cualquier lugar con el uso de una manguera. Las dimensiones de ésta dependerán de los espacios donde se suela trabajar. El modelo M12S100 cuenta con un tejido especialmente diseñado para evitar deformaciones y aumentar la vida útil y resistencia de las mangueras.</p>
-            <h5 class="text-secondary text-center">$29.990</h5>
+            <h5 class="text-secondary text-center precio9">$29.990</h5>
                         <div class="row">
             <div class="offset-md-4">
             <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">

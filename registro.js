@@ -46,9 +46,9 @@ $(function() // public static void main (JAVa)
                 alert("Debe especificar el Digito verificador");
                 $(".txtDV").focus();
             }
-            else{
-                $('.txtDV').val(rdv);
-            }
+            // else{
+            //     $('.txtDV').val(rdv);
+            // }
         }
         else if(dv!=rdv){
             alert("El rut es invalido");
@@ -73,13 +73,31 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar la contraseña");
             $(".txtPassword").focus();
         }    
+        else if(password1.length<8)
+        {
+            alert("La contraseña debe tener como minimo 8 caracteres")
+            $(".txtPassword").focus();
+        }    
         else if(!password2)
         {
             alert("Debe confirmar la contraseña");
             $(".txtPassword2").focus();
         }    
+        else if(password2.length<8)
+        {
+            alert("La contraseña debe tener como minimo 8 caracteres")
+            $(".txtPassword").focus();
+        }    
+        else if(password1!=password2){
+            alert("Las contraseñas deben coincidir");
+            return false;
+        }
         else if(!email){
             alert("Debe especificar el correo");
+            $(".txtEmail").focus();
+        }
+        else if(email.length<6){
+            alert("El correo debe tener como minimo 8 caracteres")
             $(".txtEmail").focus();
         }
         else if(Email.indexOf('@', 0) == -1 || Email.indexOf('.', 0) == -1) {
@@ -93,10 +111,6 @@ $(function() // public static void main (JAVa)
         else if(!telefono){
             alert("Debe especificar el telefono");
             $(".txtTelefono").focus();
-        }
-        else if(password1!=password2){
-            alert("Las contraseñas deben coincidir");
-            return false;
         }
         else {
             alert("Registrado correctamente");

@@ -10,6 +10,10 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el correo");
             $(".txtEmail").focus();
         }     
+        else if(Email.length<13){
+            alert("El correo debe tener como minimo 8 caracteres")
+            $(".txtEmail").focus();
+        }
         else if(Email.indexOf('@', 0) == -1 || Email.indexOf('.', 0) == -1) {
             alert('El correo electrónico introducido no es correcto.');
             return false;
@@ -19,6 +23,11 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar la contraseña");
             $(".txtPassword").focus();
         }
+        else if(Password.length<8)
+        {
+            alert("La contraseña debe tener como minimo 8 caracteres")
+            $(".txtPassword").focus();
+        }  
         else{
             alert("Iniciando sesion...");
         }
