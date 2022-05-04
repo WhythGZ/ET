@@ -22,7 +22,7 @@ $(function() // public static void main (JAVa)
             return false;
         }
         else{
-            $('.txtCantidadUSD').val((vUsd*clp)/1000000 + ' Dolarucos');
+            $('.txtCantidadUSD').val((vUsd*clp)/1000000);
             return false;
         }
     })

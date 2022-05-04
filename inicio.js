@@ -9,15 +9,15 @@ $(function() // public static void main (JAVa)
         {
             alert("Debe especificar el correo");
             $(".txtEmail").focus();
-        }           
+        }     
+        else if(Email.indexOf('@', 0) == -1 || Email.indexOf('.', 0) == -1) {
+            alert('El correo electrónico introducido no es correcto.');
+            return false;
+        }      
         else if(!Password)
         {
             alert("Debe especificar la contraseña");
             $(".txtPassword").focus();
-        }
-        else if(Email.indexOf('@', 0) == -1 || Email.indexOf('.', 0) == -1) {
-            alert('El correo electrónico introducido no es correcto.');
-            return false;
         }
         else{
             alert("Iniciando sesion...");
