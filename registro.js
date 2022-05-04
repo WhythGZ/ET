@@ -47,6 +47,10 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el correo");
             $(".txtEmail").focus();
         }
+        else if(Email.indexOf('@', 0) == -1 || Email.indexOf('.', 0) == -1) {
+            alert('El correo electrónico introducido no es correcto.');
+            return false;
+        }
         else if(!direccion){
             alert("Debe especificar la direccion");
             $(".txtDireccion").focus();
@@ -69,7 +73,6 @@ $(function() // public static void main (JAVa)
         let caracter = String.fromCharCode(e.which);
         if(correo.indexOf(caracter) < 0)
             return false;
-
     })
     let letras = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ';
     $(".txtNombre").keypress(function(e)
