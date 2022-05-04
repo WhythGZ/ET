@@ -12,16 +12,47 @@ $(function() // public static void main (JAVa)
         let email = $(".txtEmail").val();
         let direccion = $(".txtDireccion").val();
         let telefono = $(".txtTel").val();
+        let rutInv = rut.split("").reverse().join("");
+        let suma = 0;
+        let rdv = '';
+        let multiplicador = 2;
+        for (let i = 0; i<rutInv.length; i++){
+            if (multiplicador == 7){
+                suma += (rutInv[i] * parseInt(multiplicador));
+                multiplicador = 2;
+            }else{
+                suma += (rutInv[i] * parseInt(multiplicador));
+                multiplicador++;
+            }
+        }
+        let mod = 11 - (suma%11)
+        if(mod == 10){
+            rdv = 'k';
+        }
+        else if (mod == 11){
+            rdv = '0';
+        }
+        else {
+            rdv = mod;
+        }
         if(!rut)
         {
             alert("Debe especificar el Rut");
             $(".txtRut").focus();
         }           
         else if(!dv)
-        {
-            alert("Debe especificar el Digito verificador");
-            $(".txtDV").focus();
-        }    
+        {   
+            if(!rut){
+                alert("Debe especificar el Digito verificador");
+                $(".txtDV").focus();
+            }
+            else{
+                $('.txtDV').val(rdv);
+            }
+        }
+        else if(dv!=rdv){
+            alert("El rut es invalido");
+        }
         else if(!nombre)
         {
             alert("Debe especificar el Nombre");
