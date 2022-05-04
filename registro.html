@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="resources/icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="registro.js"></script>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 col-md-12">
@@ -73,43 +75,64 @@
                 <div class="row">
                     <div class="col-md-10 off-md-4">
                         <div class="signup-form">
-                            <form action="" class="mt-5 border p-4 bg-light shadow">
+                            <form action="" autocomplete="off" class="mt-5 border p-4 bg-light shadow">
                                 <h3 class="mb-4">Registrarse</h3>
+                                <div class="border p-3">
+                                  <h5>Información personal</h5>
+                                <div class="row">
+                                  <div class="mb-3 col-md-10">
+                                    <label for="txtRut">Rut<span class="text-danger">*</span></label>
+                                    <input type="text" id="txtRut" name="txtRut" required placeholder="Ingrese su Rut" class="txtRut form-control">
+                                  </div>
+                                  <div class="mb-3 col-md-2">
+                                    <label for="txtDV">Digito verificador<span class="text-danger">*</span></label>
+                                    <input type="text" id="txtDV" name="txtDV" required placeholder="Ingrese su DV" class="txtDV form-control">
+                                  </div>
+                                </div>
                                 <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="txtNombre">Nombre<span class="text-danger">*</span></label>
-                                    <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese su Nombre" class="txtNombre form-control">
+                                    <input type="text" id="txtNombre" name="txtNombre" required placeholder="Ingrese su Nombre" class="txtNombre form-control">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="txtApellido">Apellido<span class="text-danger">*</label>
-                                    <input type="text" id="txtApellido" name="txtApellido" placeholder="Ingrese su Apellido" class="txtApellido form-control">
+                                    <input type="text" id="txtApellido" name="txtApellido" required placeholder="Ingrese su Apellido" class="txtApellido form-control">
                                 </div>
-                            </div>
-                                <div class="mb-3 col-md-12">
-                                    <label for="txtEmail">Email<span class="text-danger">*</label>
-                                    <input type="email" id="txtEmail" name="txtEmail" placeholder="Ingrese su Email" class="txtEmail form-control">
-                                </div>
-                                <div class="mb-3 col-md-12">
-                                    <label for="txtTel">Teléfono<span class="text-danger">*</label>
-                                    <input type="tel" id="txtTel" name="txtTel" placeholder="Ingrese su Teléfono" class="txtTel form-control">
-                                </div>
-                                <div class="mb-3 col-md-12">
-                                    <label for="fechaNac">Fecha Nacimiento<span class="text-danger">*</label>
-                                    <input type="date" id="fechaNac" name="fechaNac" class="fechaNac form-control">
-                                </div>
-                                <div class="row">
+                              </div>
+                              <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="txtPassword">Contraseña<span class="text-danger">*</label>
-                                    <input type="password" id="txtPassword" name="txtPassword" placeholder="Ingrese su Contraseña" class="txtPassword form-control">
+                                    <input type="password" id="txtPassword" name="txtPassword" required placeholder="Ingrese su Contraseña" class="txtPassword form-control">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="txtCPassword">Confirmar Contraseña<span class="text-danger">*</label>
-                                    <input type="password" id="txtCPassword" name="txtCPassword" placeholder="Confirme su Contraseña" class="txtCPassword form-control">
+                                    <label for="txtPassword2">Confirmar Contraseña<span class="text-danger">*</label>
+                                    <input type="password" id="txtPassword2" name="txtPassword2" required placeholder="Confirme su Contraseña" class="txtPassword2 form-control">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-outline-dark">Registrarse</button>
                             </div>
+                            <div class="border mt-2 p-3">
+                              <h5>Contacto</h5>
+                                <div class="mb-3 col-md-12">
+                                    <label for="txtEmail">Email<span class="text-danger">*</label>
+                                    <input type="email" id="txtEmail" name="txtEmail" required placeholder="Ingrese su Email" class="txtEmail form-control">
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                  <label for="txtDireccion">Dirección<span class="text-danger">*</label>
+                                  <input type="text" id="txtDireccion" name="txtDireccion" required placeholder="Ingrese su Dirección" class="txtDireccion form-control">
+                              </div>
+                                <div class="mb-3 col-md-12">
+                                    <label for="txtTel">Teléfono<span class="text-danger">*</label>
+                                    <input type="tel" id="txtTel" name="txtTel" required placeholder="Ingrese su Teléfono" class="txtTel form-control">
+                                </div>
+                              </div>
+                              <div class="row">
+                            <div class="offset-md-3 col-md-3 mt-3">
+                              <button class="btnEnviar btn btn-outline-dark form-control">Registrarse</button>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                              <input type="reset" value="Limpiar" class="btn btn-outline-danger form-control">
+                            </div>
+                          </div>
                             </form>
                             <p class="text-center mt-4 text-secondary">¿Ya tiene una cuenta? <a href="inicio.html">Ingrese aquí</a></p>
                         </div>
