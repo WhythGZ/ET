@@ -4,6 +4,7 @@ $(function() // public static void main (JAVa)
     {
         let nombre = $(".txtNombre").val();
         let apellido = $(".txtApellido").val();
+        let fecNac = $(".fecNac").val();
         let rut = $(".txtRut").val();
         let dv = $(".txtDV").val();
         let password1 = $(".txtPassword").val();
@@ -11,8 +12,6 @@ $(function() // public static void main (JAVa)
         let email = $(".txtEmail").val();
         let direccion = $(".txtDireccion").val();
         let telefono = $(".txtTel").val();
-
-
         if(!rut)
         {
             alert("Debe especificar el Rut");
@@ -32,6 +31,11 @@ $(function() // public static void main (JAVa)
         {
             alert("Debe especificar el Apellido");
             $(".txtApellido").focus();
+        }
+        else if(!fecNac)
+        {
+            alert("Debe especificar su Fecha de Nacimiento");
+            $(".fecNac").focus();
         }
         else if(!password1)
         {
