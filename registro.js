@@ -8,6 +8,10 @@ $(function() // public static void main (JAVa)
         let dv = $(".txtDV").val();
         let password1 = $(".txtPassword").val();
         let password2 = $(".txtPassword2").val();
+        let email = $(".txtEmail").val();
+        let direccion = $(".txtDireccion").val();
+        let telefono = $(".txtTel").val();
+
 
         if(!rut)
         {
@@ -36,9 +40,21 @@ $(function() // public static void main (JAVa)
         }    
         else if(!password2)
         {
-            alert("Debe especificar la contraseña");
+            alert("Debe confirmar la contraseña");
             $(".txtPassword2").focus();
         }    
+        else if(!email){
+            alert("Debe especificar el correo");
+            $(".txtEmail").focus();
+        }
+        else if(!direccion){
+            alert("Debe especificar la direccion");
+            $(".txtDireccion").focus();
+        }
+        else if(!telefono){
+            alert("Debe especificar el telefono");
+            $(".txtTelefono").focus();
+        }
         else if(password1!=password2){
             alert("Las contraseñas deben coincidir");
             return false;
