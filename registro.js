@@ -63,6 +63,14 @@ $(function() // public static void main (JAVa)
             alert("Registrado correctamente");
         }
     });
+    let correo = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ@.1234567890_-';
+    $(".txtEmail").keypress(function(e)
+    {
+        let caracter = String.fromCharCode(e.which);
+        if(correo.indexOf(caracter) < 0)
+            return false;
+
+    })
     let letras = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ';
     $(".txtNombre").keypress(function(e)
     {
