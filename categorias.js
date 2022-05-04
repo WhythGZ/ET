@@ -33,15 +33,15 @@ $('.btnUSD').click(function(){
     $.getJSON('https://mindicador.cl/api', function(data) {
         let dailyIndicators = data;
         let vUSD = (dailyIndicators.dolar.valor);
-        $('.precio1').text('$'+Math.round(parseInt(p1)*vUSD/1000000));
-        $('.precio2').text('$'+Math.round(parseInt(p2)*vUSD/1000000));
-        $('.precio3').text('$'+Math.round(parseInt(p3)*vUSD/1000000));
-        $('.precio4').text('$'+Math.round(parseInt(p4)*vUSD/1000000));
-        $('.precio5').text('$'+Math.round(parseInt(p5)*vUSD/1000000));
-        $('.precio6').text('$'+Math.round(parseInt(p6)*vUSD/1000000));
-        $('.precio7').text('$'+Math.round(parseInt(p7)*vUSD/1000000));
-        $('.precio8').text('$'+Math.round(parseInt(p8)*vUSD/1000000));
-        $('.precio9').text('$'+Math.round(parseInt(p9)*vUSD/1000000));
+        $('.precio1').text('$'+(parseInt(p1)*vUSD/1000000).toFixed(2));
+        $('.precio2').text('$'+(parseInt(p2)*vUSD/1000000).toFixed(2));
+        $('.precio3').text('$'+(parseInt(p3)*vUSD/1000000).toFixed(2));
+        $('.precio4').text('$'+(parseInt(p4)*vUSD/1000000).toFixed(2));
+        $('.precio5').text('$'+(parseInt(p5)*vUSD/1000000).toFixed(2));
+        $('.precio6').text('$'+(parseInt(p6)*vUSD/1000000).toFixed(2));
+        $('.precio7').text('$'+(parseInt(p7)*vUSD/1000000).toFixed(2));
+        $('.precio8').text('$'+(parseInt(p8)*vUSD/1000000).toFixed(2));
+        $('.precio9').text('$'+(parseInt(p9)*vUSD/1000000).toFixed(2));
         }).fail(function() {
         console.log('Error al consumir la API!');  
     });
