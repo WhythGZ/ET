@@ -22,6 +22,11 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el stock del producto");
             $(".txtStock").focus();
         }
+        else if(stock<0){
+            alert("El numero de stock debe ser mayor que 0");
+            $(".txtStock").focus();
+            return false;
+        }
         else{
             alert("Producto registrado correctamente")
         }
@@ -57,6 +62,10 @@ $(function() // public static void main (JAVa)
         }
         else if(!stock){
             alert("Debe especificar el nuevo stock del producto");
+            $(".txtStock").focus();
+        }
+        else if(stock<0){
+            alert("El numero de stock debe ser mayor que 0");
             $(".txtStock").focus();
         }
         else{
