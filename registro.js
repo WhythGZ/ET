@@ -12,7 +12,6 @@ $(function() // public static void main (JAVa)
         let email = $(".txtEmail").val();
         let direccion = $(".txtDireccion").val();
         let telefono = $(".txtTel").val();
-        let admin = $(".rdoAdmin");
         let rutInv = rut.split("").reverse().join("");
         let suma = 0;
         let rdv = '';
@@ -113,7 +112,7 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el telefono");
             $(".txtTelefono").focus();
         }
-        else {
+        else{
             alert("Registrado correctamente");
         }
     });
