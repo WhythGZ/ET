@@ -1,6 +1,5 @@
 $(function()
 {
-
 $('.btnUSD').click(function(){
     alert("Pasando valores a Dolares");
     let arr = $('.Price');
@@ -23,9 +22,7 @@ $('.btnUSD').click(function(){
         }).fail(function() {
         console.log('Error al consumir la API!');  
     });
-
 })
-
 $('.btnCLP').click(function(){
     alert("pasando valores a Pesos Chilenos")
     location.reload();

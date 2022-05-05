@@ -9,10 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="api.js"></script>
+    <script src="formProducto.js"></script>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 col-md-12">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html">
                   <img src="resources/icon.png" width="35" height="35" alt="icon">Jardineria
@@ -50,8 +50,8 @@
                       Otros
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item active" href="api.html" tabindex="-1" aria-disabled="true">Precio USD</a></li>
-                      <li><a class="dropdown-item" href="formProducto.html" tabindex="-1" aria-disabled="true">Producto</a></li>
+                      <li><a class="dropdown-item" href="api.html" tabindex="-1" aria-disabled="true">Precio USD</a></li>
+                      <li><a class="dropdown-item active" href="formProducto.html" tabindex="-1" aria-disabled="true">Producto</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
@@ -76,38 +76,49 @@
                   </div>
               </form>
             </div>
-          </nav>  
+          </nav>    
     </header>
     <article>
         <section>
             <div class="container mt-5">
-                <div class="offset-md-2 border shadow col-md-8">
-                    <div class="p-5">
-                        <form action="" autocomplete="off">
-                            <h3 class="text-dark mb-5 text-center">CLP to USD</h3>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="txtRes" class="text-secondary m-1">Precio Actual del Dolar:</label>
-                                </div>
-                                <div class="col-md-2 mb-2">
-                                    <input type="text" id="txtRes" class="txtRes form-control" disabled>
-                                </div>
-                            </div>
-                                <div class="col-md-5 mb-2">
-                                    <input type="text" class="form-control txtCantidadCLP" placeholder="Cantidad en pesos chilenos" name="txtCantidadCLP" id="txtCantidadCLP">
-                                </div>
-                                <div class="col-md-5 mb-2">
-                                    <input type="text" disabled class="form-control txtCantidadUSD" placeholder="Cantidad en dolares" name="txtCantidadUSD" id="txtCantidadUSD">
+                <div class="row">
+                    <div class="col-md-10 off-md-4">
+                        <div class="signup-form">
+                            <form action="" autocomplete="off" class="mt-5 border p-4 bg-light shadow">
+                                <h3 class="mb-4">Registrar Producto</h3>
+                                  <div class="mb-3 col-md-12">
+                                    <label for="txtCode">Código Producto<span class="text-danger">*</span></label>
+                                    <input type="text" id="txtCode" name="txtCode" required placeholder="Ingrese el codigo del producto" class="txtCode form-control">
+                                  </div>
+                                <div class="mb-3 col-md-12">
+                                    <label for="txtNombre">Nombre Producto<span class="text-danger">*</span></label>
+                                    <input type="text" id="txtNombre" name="txtNombre" required placeholder="Ingrese el nombre del producto" class="txtNombre form-control">
                                 </div>
                                 <div class="row">
-                                <div class="col-md-2">
-                                    <button class="form-control btn btn-outline-dark btnConvertir">Convertir</button>
+                                <div class="mb-3 col-md-6">
+                                    <label for="txtPrecio">Precio Producto<span class="text-danger">*</label>
+                                    <input type="text" id="txtPrecio" name="txtPrecio" required placeholder="Ingrese el precio del producto" class="txtPrecio form-control">
                                 </div>
-                                <div class="col-md-2">
-                                    <button class="btnLimpiar form-control btn btn-outline-danger">Limpiar</button>
+                                <div class="mb-3 col-md-6">
+                                    <label for="txtStock">Stock Producto<span class="text-danger">*</label>
+                                    <input type="number" id="txtStock" name="txtStock" required placeholder="Ingrese el stock del producto" class="txtStock form-control">
                                 </div>
+                              </div>
+                              <div class="row">
+                            <div class="col-md-3 mt-3">
+                              <button class="btnCreate btn btn-outline-success form-control">Registrar Producto</button>
                             </div>
-                        </form>
+                            <div class="col-md-3 mt-3">
+                              <button class="btnRead btn-outline-warning form-control">Mostrar Productos</button>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                              <button class="btnUpdate btn btn-outline-info form-control">Actualizar Producto</button>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                              <button class="btnDelete btn btn-outline-dark form-control">Eliminar Producto</button>
+                            </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
