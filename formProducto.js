@@ -81,7 +81,7 @@ $(function() // public static void main (JAVa)
         if(numeros.indexOf(caracter) < 0)
             return false;
     })
-    let letras = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ';
+    let letras = "qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ1234567890'";
     $(".txtNombre").keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);
