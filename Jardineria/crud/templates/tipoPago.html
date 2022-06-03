@@ -1,0 +1,93 @@
+{# Esto es un comentario #}
+{% extends "index.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block tituloPestana %} 
+    CRUD Categoria
+{% endblock %}
+{% block tituloPagina %} 
+    <div class="text-center mt-5">
+        <h1>Registro tipo de pago</h1>
+    </div>
+{% endblock %}
+
+{% block mensaje %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+{% block contenido %} 
+<br>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-10 off-md-4">
+                <div class="signup-form">
+                    <form action="{%url 'tipoPago' %}" method="POST" autocomplete="off" class="mt-5 border p-4 bg-light shadow">
+                        {% csrf_token %}
+                        <h3 class="mb-4">Registrar Tipo de Pago</h3>
+                          <div class="mb-3 col-md-12">
+                            <input type="hidden" name="txtId" value="{{fila.id}}">
+                            <label for="txtCode">ID Tipo de Pago<span class="text-danger">*</span></label>
+                            <input type="text" id="txtCode" name="txtCode" required placeholder="Ingrese el codigo del producto" class="txtCode form-control" value="{{ fila.idTipoPago }}">
+                          </div>
+                        <div class="mb-3 col-md-12">
+                            <label for="txtNombre">Nombre Tipo de Pago<span class="text-danger">*</span></label>
+                            <input type="text" id="txtNombre" name="txtNombre" required placeholder="Ingrese el nombre del producto" class="txtNombre form-control" value="{{ fila.nombreTipoPago }}">
+                        </div>
+                        <div class="mb-3 col-md-12">
+                            <label class="form-check-label" for="chkActivo">Activo</label>
+                            <input type="checkbox" name="chkActivo" id="chkActivo" class="form-check-input" value="1" {% if fila.activo %}{{ 'checked' }}{% endif %}>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3 mt-3">
+                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Tipo de Pago"></button>
+                          </div>
+                          <div class="col-md-3 mt-3">
+                            <input type="submit" name="btnUpdate" class="btnUpdate btn btn-outline-info form-control" value="Actualizar Tipo de Pago"></button>
+                          </div>
+                          <div class="col-md-3 mt-3">
+                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Tipos de Pago"></button>
+                          </div>
+                          <div class="col-md-3 mt-3">
+                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Tipo de Pago"></button>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block listado %} 
+{% if listado %}
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>idTipoPago</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                    <th>Seleccionar</th>
+                </tr>
+    {% for fila in listado %}
+                <tr>
+                    <td>{{ fila.id }}</td>
+                    <td>{{ fila.idTipoPago }}</td>
+                    <td>{{ fila.nombreTipoPago }}</td>
+                    <td>{{ fila.activo }}</td>
+                    <td><a href="{% url 'tipoPago' %}/{{ fila.id }}/">Seleccionar</a></td>
+                </tr>
+    {% endfor %}
+            </table>
+        </div>
+    </div>
+{%endif%}
+{% endblock %}

@@ -43,18 +43,15 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><a class="dropdown-item" href="inicio.html">Iniciar Sesion</a></li>
                       <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
-                      <li><a class="dropdown-item" href="formAdmin.html">Registrarse ADMIN</a></li>
                     </ul>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Otros
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><a class="dropdown-item" href="api.html" tabindex="-1" aria-disabled="true">Precio USD</a></li>
-                      <li><a class="dropdown-item active" href="formProducto.html" tabindex="-1" aria-disabled="true">Producto</a></li>
-                      <li><a class="dropdown-item" href="tipo_pago.html" tabindex="-1" aria-disabled="true">Tipos de Pago</a></li>
-                      <li><a class="dropdown-item" href="categoria.html" tabindex="-1" aria-disabled="true">Categorias</a></li>
+                      <li><a class="dropdown-item" href="formProducto.html" tabindex="-1" aria-disabled="true">Producto</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
@@ -83,66 +80,10 @@
     </header>
     <article>
         <section>
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-10 off-md-4">
-                        <div class="signup-form">
-                            <form action="" autocomplete="off" class="mt-5 border p-4 bg-light shadow">
-                                <h3 class="mb-4">Registrar Producto</h3>
-                                  <div class="mb-3 col-md-12">
-                                    <label for="txtCode">Código Producto<span class="text-danger">*</span></label>
-                                    <input type="text" id="txtCode" name="txtCode" required placeholder="Ingrese el codigo del producto" class="txtCode form-control">
-                                  </div>
-                                <div class="mb-3 col-md-12">
-                                    <label for="txtNombre">Nombre Producto<span class="text-danger">*</span></label>
-                                    <input type="text" id="txtNombre" name="txtNombre" required placeholder="Ingrese el nombre del producto" class="txtNombre form-control">
-                                </div>
-                                <div class="mb-3 col-md-12">
-                                  <label for="ctProducto">Categoria Producto<span class="text-danger">*</span></label>
-                                  <select name="ctProducto" class="ctProducto form-select" id="ctProducto">
-                                    <option class="ctProducto" hidden value="0">Seleccione una categoria</option>
-                                    <option value="1">Suministros</option>
-                                    <option value="2">Herramientas</option>
-                                    <option value="3">Maceteros</option>
-                                    <option value="4">Flores</option>
-                                  </select>
-                              </div>
-                                <div class="row">
-                                <div class="mb-3 col-md-6">
-                                    <label for="txtPrecio">Precio Producto<span class="text-danger">*</label>
-                                    <input type="text" id="txtPrecio" name="txtPrecio" required placeholder="Ingrese el precio del producto" class="txtPrecio form-control">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="txtStock">Stock Producto<span class="text-danger">*</label>
-                                    <input type="number" id="txtStock" name="txtStock" required placeholder="Ingrese el stock del producto" class="txtStock form-control">
-                                </div>
-                              </div>
-                              <div class="mb-3 col-md-12">
-                                <label for="txtCosto">Precio Costo<span class="text-danger">*</label>
-                                <input type="text" id="txtCosto" name="txtCosto" required placeholder="Ingrese el costo del producto" class="txtPrecio form-control">
-                            </div>
-                              <div class="mb-3 col-md-12">
-                                <label class="form-check-label" for="chkActivo">Activo</label>
-                                <input type="checkbox" name="chkActivo" id="chkActivo" class="form-check-input ">
-                            </div>
-                              <div class="row">
-                            <div class="col-md-3 mt-3">
-                              <button class="btnCreate btn btn-outline-success form-control">Registrar Producto</button>
-                            </div>
-                            <div class="col-md-3 mt-3">
-                              <button class="btnRead btn-outline-warning form-control">Mostrar Productos</button>
-                            </div>
-                            <div class="col-md-3 mt-3">
-                              <button class="btnUpdate btn btn-outline-info form-control">Actualizar Producto</button>
-                            </div>
-                            <div class="col-md-3 mt-3">
-                              <button class="btnDelete btn btn-outline-dark form-control">Eliminar Producto</button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {% block tituloPagina %} {% endblock %}
+                {% block mensaje %} {% endblock %}
+                {% block contenido %} {% endblock %}
+                {% block listado %} {% endblock %}
         </section>
     </article>
     <footer class="bg-dark text-center text-white p-1 mt-4">

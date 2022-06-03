@@ -6,6 +6,8 @@ $(function() // public static void main (JAVa)
         let nombre = $(".txtNombre").val();
         let precio = $(".txtPrecio").val();
         let stock = $(".txtStock").val();
+        let categoria = $('.ctProducto').val();
+        let costo = $('.txtCosto').val();
         if(!code){
             alert("Debe especificar el codigo del producto");
             $(".txtCode").focus();
@@ -14,8 +16,16 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el nombre del producto");
             $(".txtNombre").focus();
         }
+        else if (categoria == 0){
+            alert("Debe especificar la categoria del producto")
+            $(".ctProducto").focus();
+        }
         else if(!precio){
             alert("Debe especificar el precio del producto");
+            $(".txtPrecio").focus();
+        }
+        else if(precio<500){
+            alert("El precio minimo debe ser de 500 pesos");
             $(".txtPrecio").focus();
         }
         else if(!stock){
@@ -26,6 +36,14 @@ $(function() // public static void main (JAVa)
             alert("El numero de stock debe ser mayor que 0");
             $(".txtStock").focus();
             return false;
+        }
+        else if(!costo){
+            alert("Debe especificar el costo del producto");
+            $(".txtCosto").focus();
+        }
+        else if(costo<500){
+            alert("El precio minimo del costo deber ser de 500 pesos");
+            $(".txtCosto").focus();
         }
         else{
             alert("Producto registrado correctamente")
@@ -48,6 +66,8 @@ $(function() // public static void main (JAVa)
         let nombre = $(".txtNombre").val();
         let precio = $(".txtPrecio").val();
         let stock = $(".txtStock").val();
+        let categoria = $('.ctProducto').val();
+        let costo = $('.txtCosto').val();
         if(!code){
             alert("Debe especificar el codigo del producto");
             $(".txtCode").focus();
@@ -56,8 +76,16 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el nuevo nombre del producto");
             $(".txtNombre").focus();
         }
+        else if (categoria == 0){
+            alert("Debe especificar la categoria del producto")
+            $(".ctProducto").focus();
+        }
         else if(!precio){
             alert("Debe especificar el nuevo precio del producto");
+            $(".txtPrecio").focus();
+        }
+        else if(precio<500){
+            alert("El precio minimo debe ser de 500clp");
             $(".txtPrecio").focus();
         }
         else if(!stock){
@@ -67,6 +95,14 @@ $(function() // public static void main (JAVa)
         else if(stock<0){
             alert("El numero de stock debe ser mayor que 0");
             $(".txtStock").focus();
+        }
+        else if(!costo){
+            alert("Debe especificar el costo del producto");
+            $(".txtCosto").focus();
+        }
+        else if(costo<500){
+            alert("El precio minimo del costo deber ser de 500 pesos");
+            $(".txtCosto").focus();
         }
         else{
             alert("Producto se actualizo correctamente")

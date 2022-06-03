@@ -96,7 +96,7 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el correo");
             $(".txtEmail").focus();
         }
-        else if(email.length<13){
+        else if(email.length<8){
             alert("El correo debe tener como minimo 8 caracteres")
             $(".txtEmail").focus();
         }
@@ -112,6 +112,10 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el telefono");
             $(".txtTelefono").focus();
         }
+        else if(telefono.length<11){
+            alert("El telefono debe tener como minimo 11 caracteres");
+            $(".txtTelefono").focus();
+        }
         else{
             alert("Registrado correctamente");
         }
@@ -123,7 +127,7 @@ $(function() // public static void main (JAVa)
         if(correo.indexOf(caracter) < 0)
             return false;
     })
-    let letras = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ';
+    let letras = 'qwertyu -iopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ';
     $(".txtNombre").keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);

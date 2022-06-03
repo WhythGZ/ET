@@ -8,7 +8,7 @@ $(function() // public static void main (JAVa)
             alert("Debe especificar el correo");
             $(".txtEmail").focus();
         }
-        else if(Email.length<13){
+        else if(Email.length<8){
             alert("El correo debe tener como minimo 8 caracteres")
             $(".txtEmail").focus();
         }   
