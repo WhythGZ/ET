@@ -1,15 +1,18 @@
-$(function()
+$(function() // public static void main (JAVa)
 {
     $(".btnCreate").click(function()
     {
-        let code = $(".txtCode").val();
         let nombre = $(".txtNombre").val();
         if(!nombre){
             alert("Debe especificar el nombre del tipo de pago");
             $(".txtNombre").focus();
         }
+        else if (nombre.length<5){
+            alert("El nombre del tipo de pago debe tener como minimo 5 caracteres");
+            $(".txtNombre").focus();
+        }
         else{
-            alert("Tipo de pago registrado correctamente")
+            alert("Tipo de pago registrado correctamente");
         }
     });
     let letras = "qwertyuiopasdfghjklzxcvbnm- ñQWERTYUIOPASDFGHJKLZXCVBNMÑ'";

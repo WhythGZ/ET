@@ -2,14 +2,14 @@
 {% extends "index.html" %}
 {# definir contenidos que tendrán cada uno de los bloques #}
 {% block script %} 
-<script src="/static/javascript/tipoPago.js"></script>
+<script src="/static/javascript/categoria.js"></script>
 {% endblock %}
 {% block tituloPestana %} 
     CRUD Categoria
 {% endblock %}
 {% block tituloPagina %} 
     <div class="text-center mt-5">
-        <h1>Registro tipo de pago</h1>
+        <h1>Registro de categorias</h1>
     </div>
 {% endblock %}
 
@@ -30,13 +30,13 @@
         <div class="row">
             <div class="col-md-10 off-md-4">
                 <div class="signup-form">
-                    <form action="{%url 'tipoPago' %}" method="POST" autocomplete="off" class="mt-5 border p-4 bg-light shadow">
+                    <form action="{%url 'categoria' %}" method="POST" autocomplete="off" class="mt-5 border p-4 bg-light shadow">
                         {% csrf_token %}
-                        <h3 class="mb-4">Registrar Tipo de Pago</h3>
+                        <h3 class="mb-4">Registrar Categoria</h3>
                         <div class="mb-3 col-md-12">
                             <input type="hidden" name="txtId" value="{{fila.id}}">
-                            <label for="txtNombre">Nombre Tipo de Pago<span class="text-danger">*</span></label>
-                            <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese el nombre del producto" class="txtNombre form-control" value="{{ fila.nombreTipoPago }}">
+                            <label for="txtNombre">Nombre Categoria<span class="text-danger">*</span></label>
+                            <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese el nombre de la categoria" class="txtNombre form-control" value="{{ fila.nombreCategoria }}">
                         </div>
                         <div class="mb-3 col-md-12">
                             <label class="form-check-label" for="chkActivo">Activo</label>
@@ -44,13 +44,13 @@
                         </div>
                         <div class="row">
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Tipo de Pago"></button>
+                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Categoria"></button>
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Tipos de Pago"></button>
+                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Categorias"></button>
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Tipo de Pago"></button>
+                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Categoria"></button>
                           </div>
                         </div>
                     </form>
@@ -76,7 +76,7 @@
                     <td>{{ fila.id }}</td>
                     <td>{{ fila.nombreTipoPago }}</td>
                     <td>{{ fila.activo }}</td>
-                    <td><a href="{% url 'tipoPago' %}/{{ fila.id }}/">Seleccionar</a></td>
+                    <td><a href="{% url 'categoria' %}/{{ fila.id }}/">Seleccionar</a></td>
                 </tr>
     {% endfor %}
             </table>

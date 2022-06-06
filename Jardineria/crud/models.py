@@ -29,24 +29,23 @@ from django.db import models
 #     def __str__(self):
 #         return self.codigoProducto
 
-# class Categoria(models.Model):
-#     idCategoria = models.IntegerField()
-#     nombreCategoria = models.TextField(max_length=100)
+class Categoria(models.Model):
+    nombreCategoria = models.TextField(max_length=100)
+    activo = models.BooleanField()
 
-#     def __str__(self):
-#         return self.nombreCategoria
+    def __str__(self):
+        return self.nombreCategoria
 
 class tipoPago(models.Model):
-    idTipoPago = models.IntegerField()
     nombreTipoPago = models.TextField()
     activo = models.BooleanField()
 
     def __str__(self):
         return self.nombreTipoPago
 
-# class tipoUsuario(models.Model):
-#     idTipoUsuario = models.IntegerField()
-#     nombreTipoUsuario = models.TextField()
+class tipoUsuario(models.Model):
+    nombreTipoUsuario = models.TextField()
+    activo = models.BooleanField()
 
-#     def __str__(self):
-#         return self.nombreTipoUsuario
+    def __str__(self):
+        return self.nombreTipoUsuario
