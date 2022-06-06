@@ -44,13 +44,13 @@
                         </div>
                         <div class="row">
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Categoria"></button>
+                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Categoria">
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Categorias"></button>
+                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Categorias">
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Categoria"></button>
+                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Categoria">
                           </div>
                         </div>
                     </form>
@@ -74,9 +74,9 @@
     {% for fila in listado %}
                 <tr>
                     <td>{{ fila.id }}</td>
-                    <td>{{ fila.nombreTipoPago }}</td>
+                    <td>{{ fila.nombreCategoria }}</td>
                     <td>{{ fila.activo }}</td>
-                    <td><a href="{% url 'categoria' %}/{{ fila.id }}/">Seleccionar</a></td>
+                    <td><a href="{% url 'categoria' %}/{{ fila.id }}/">Editar</a></td>
                 </tr>
     {% endfor %}
             </table>

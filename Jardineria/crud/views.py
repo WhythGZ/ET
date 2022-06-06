@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Categoria, tipoPago, tipoUsuario
+from .models import Categoria, tipoPago, tipoUsuario, Producto
 
 # Create your views here.
 
@@ -144,32 +144,62 @@ def viewReadTipoUsuario(request, id):
 
     return render(request, 'tipoUsuario.html', cntx)
 
-# def viewProduct(request):
-#     contexto = {}
-#     if request.method == 'POST':
-#         # capturar datos del form
-#         id = int("0" + request.POST["txtId"])
-#         codigoProducto = request.POST["txtCode"]
-#         nombreProducto = request.POST["txtNombre"]
-#         precioProducto = request.POST["txtPrecio"]
-#         stockProducto = request.POST["txtStock"]
-#         # detectar que botón fue presionado
-#         if 'btnCreate' in request.POST:
-#             if id < 1: # ORM Object relational Mapping
-#                 Producto.objects.create(codigoProducto = codigoProducto, nombreProducto = nombreProducto, precioProducto = precioProducto, stockProducto = stockProducto ) 
-#             else:
-#                 item = Producto.objects.get(pk = id)
-#                 item.codigoProducto = codigoProducto
-#                 item.nombreProducto = nombreProducto
-#                 item.precioProducto = precioProducto
-#                 item.stockProducto = stockProducto
-#                 item.save()     
-#             contexto = {'mensaje': 'Los datos fueron guardados'}
 
-        
-#         elif 'btnListar' in request.POST:
-#             listado = Producto.objects.all()
-#             contexto = {'listado': listado }
+def viewProducto(request):
+    cntx = {}
+    productCategories = Categoria.objects.all()
+    cntx = {'productCategories' : productCategories}
+    if request.method == 'POST':
+        id = int("0" + request.POST["txtId"])
+        codigoProducto = request.POST["txtCode"]
+        nombreProducto = request.POST["txtNombre"]
+        categoriaProducto = request.POST["ctProducto"]
+        precioProducto = request.POST["txtPrecio"]
+        stockProducto = request.POST["txtStock"]
+        precioCosto = request.POST["txtCosto"]
+        activo = False
+        if 'chkActivo' in request.POST:
+            activo = True
+        if 'btnCreate' in request.POST:
+            if len(nombreProducto) < 5:
+                cntx = {'error': 'El nombre del producto debe tener como minimo 5 caracteres'}
+            elif id < 1:
+                Producto.objects.create(codigoProducto = codigoProducto, nombreProducto = nombreProducto, categoriaProducto = categoriaProducto, precioProducto = precioProducto, stockProducto = stockProducto, precioCosto = precioCosto, activo = activo)
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+            else:
+                fila = Producto.objects.get(pk = id)
+                fila.codigoProducto = codigoProducto
+                fila.nombreProducto = nombreProducto
+                fila.categoriaProducto = categoriaProducto
+                fila.precioProducto = precioProducto
+                fila.stockProducto = stockProducto
+                fila.precioCosto = precioCosto
+                fila.activo = activo
+                fila.save()
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+        elif 'btnRead' in request.POST:
+            listado = Producto.objects.all()
+            if len(listado) >= 1:
+                cntx = {'listado': listado }
+            else:
+                cntx = {'error': 'Aun no existen productos para mostrar'}
+        elif 'btnDelete' in request.POST:
+            try:
+                fila = Producto.objects.get(pk = id)
+                fila.delete()
+                cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
+            except:
+                cntx = {'error': 'Debe seleccionar item a eliminar'}
 
-#     return render(request, 'formProducto.html', contexto)
+    return render(request, 'producto.html', cntx)
+  
+def viewReadProducto(request, id):
+    cntx = {}
+    try:
+        fila = Producto.objects.get(pk = id)
+        cntx = {'fila': fila}
+    except:
+        cntx = {'error': 'Item no encontrado'}
+
+    return render(request, 'producto.html', cntx)
 

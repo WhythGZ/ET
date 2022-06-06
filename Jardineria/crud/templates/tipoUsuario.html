@@ -5,7 +5,7 @@
 <script src="/static/javascript/tipoUsuario.js"></script>
 {% endblock %}
 {% block tituloPestana %} 
-    CRUD Categoria
+    CRUD Tipo de Usuario
 {% endblock %}
 {% block tituloPagina %} 
     <div class="text-center mt-5">
@@ -44,13 +44,13 @@
                         </div>
                         <div class="row">
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Tipo de usuario"></button>
+                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Tipo de usuario">
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Tipos de usuarios"></button>
+                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Tipos de usuarios">
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Tipo de usuario"></button>
+                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Tipo de usuario">
                           </div>
                         </div>
                     </form>
@@ -74,9 +74,9 @@
     {% for fila in listado %}
                 <tr>
                     <td>{{ fila.id }}</td>
-                    <td>{{ fila.nombreTipoPago }}</td>
+                    <td>{{ fila.nombreTipoUsuario }}</td>
                     <td>{{ fila.activo }}</td>
-                    <td><a href="{% url 'tipoUsuario' %}/{{ fila.id }}/">Seleccionar</a></td>
+                    <td><a href="{% url 'tipoUsuario' %}/{{ fila.id }}/">Editar</a></td>
                 </tr>
     {% endfor %}
             </table>

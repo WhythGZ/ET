@@ -12,22 +12,22 @@ from django.db import models
 #     email = models.TextField(max_length=30)
 #     direccion = models.TextField(max_length=30)
 #     telefono = models.TextField(max_length=12)
-#     admin = models.BooleanField()
+#     admin = models.BooleanField() change for a combo box userCategory
 
 #     def __str__(self):
 #         return self.rut
     
-# class Producto(models.Model):
-#     codigoProducto = models.IntegerField()
-#     nombreProducto = models.TextField(max_length=100)
-#     categoriaProducto = models.IntegerField()
-#     precioProducto = models.IntegerField()
-#     stockProducto = models.IntegerField()
-#     precioCosto = models.IntegerField()
-#     activo = models.BooleanField()
+class Producto(models.Model):
+    codigoProducto = models.IntegerField()
+    nombreProducto = models.TextField(max_length=100)
+    categoriaProducto = models.TextField(max_length=50)
+    precioProducto = models.IntegerField()
+    stockProducto = models.IntegerField()
+    precioCosto = models.IntegerField()
+    activo = models.BooleanField()
 
-#     def __str__(self):
-#         return self.codigoProducto
+    def __str__(self):
+        return self.codigoProducto
 
 class Categoria(models.Model):
     nombreCategoria = models.TextField(max_length=100)

@@ -5,7 +5,7 @@
 <script src="/static/javascript/tipoPago.js"></script>
 {% endblock %}
 {% block tituloPestana %} 
-    CRUD Categoria
+    CRUD Tipo de Pago
 {% endblock %}
 {% block tituloPagina %} 
     <div class="text-center mt-5">
@@ -44,13 +44,13 @@
                         </div>
                         <div class="row">
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Tipo de Pago"></button>
+                            <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-success form-control" value="Registrar Tipo de Pago">
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Tipos de Pago"></button>
+                            <input type="submit" name="btnRead" class="btnRead btn btn-outline-secondary form-control" value="Listar Tipos de Pago">
                           </div>
                           <div class="col-md-4 mt-3">
-                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Tipo de Pago"></button>
+                            <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Tipo de Pago">
                           </div>
                         </div>
                     </form>
@@ -76,7 +76,7 @@
                     <td>{{ fila.id }}</td>
                     <td>{{ fila.nombreTipoPago }}</td>
                     <td>{{ fila.activo }}</td>
-                    <td><a href="{% url 'tipoPago' %}/{{ fila.id }}/">Seleccionar</a></td>
+                    <td><a href="{% url 'tipoPago' %}/{{ fila.id }}/">Editar</a></td>
                 </tr>
     {% endfor %}
             </table>

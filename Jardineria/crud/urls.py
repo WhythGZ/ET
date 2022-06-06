@@ -7,4 +7,6 @@ urlpatterns = [
     path('categoria/<int:id>/', views.viewReadCategoria, name="categoria"),
     path('tipoUsuario', views.viewTipoUsuario, name="tipoUsuario"),
     path('tipoUsuario/<int:id>/', views.viewReadTipoUsuario, name="tipoUsuario"),
+    path('producto', views.viewProducto, name="producto"),
+    path('producto/<int:id>/', views.viewReadProducto, name="producto"),
     ]
