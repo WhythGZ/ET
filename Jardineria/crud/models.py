@@ -2,20 +2,20 @@ from django.db import models
 
 # Create your models here.
 
-# class Usuario(models.Model):
-#     rut = models.TextField(max_length=10)
-#     dv = models.TextField(max_length=1)
-#     nombre = models.TextField(max_length=20)
-#     apellido = models.TextField(max_length=20)
-#     fechaNac = models.DateField()
-#     password = models.TextField()
-#     email = models.TextField(max_length=30)
-#     direccion = models.TextField(max_length=30)
-#     telefono = models.TextField(max_length=12)
-#     admin = models.BooleanField() change for a combo box userCategory
+class Usuario(models.Model):
+    rut = models.TextField(max_length=10)
+    dv = models.TextField(max_length=1)
+    nombre = models.TextField(max_length=20)
+    apellido = models.TextField(max_length=20)
+    fechaNac = models.DateField()
+    password = models.TextField()
+    email = models.TextField(max_length=30)
+    direccion = models.TextField(max_length=30)
+    telefono = models.TextField(max_length=12)
+    tipoDeUsuario = models.TextField(max_length=20)
 
-#     def __str__(self):
-#         return self.rut
+    def __str__(self):
+        return self.rut
     
 class Producto(models.Model):
     codigoProducto = models.IntegerField()

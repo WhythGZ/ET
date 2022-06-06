@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Categoria, tipoPago, tipoUsuario, Producto
+from .models import Categoria, Usuario, tipoPago, tipoUsuario, Producto
 
 # Create your views here.
 
@@ -146,7 +146,6 @@ def viewReadTipoUsuario(request, id):
 
 
 def viewProducto(request):
-    cntx = {}
     productCategories = Categoria.objects.all()
     cntx = {'productCategories' : productCategories}
     if request.method == 'POST':
@@ -202,4 +201,65 @@ def viewReadProducto(request, id):
         cntx = {'error': 'Item no encontrado'}
 
     return render(request, 'producto.html', cntx)
+
+def viewUsuario(request):
+    userCategories = tipoUsuario.objects.all()
+    cntx = {'userCategories' : userCategories}
+    if request.method == 'POST':
+        id = int("0" + request.POST["txtId"])
+        rut = request.POST["txtRut"]
+        dv = request.POST["txtDV"]
+        nombre = request.POST["txtNombre"]
+        apellido = request.POST["txtApellido"]
+        fechaNac = request.POST["fecNac"]
+        password = request.POST["txtPassword"]
+        email = request.POST["txtEmail"]
+        direccion = request.POST["txtDireccion"]
+        telefono = request.POST["txtTel"]
+        tipoDeUsuario = request.POST["cmbTipoUsuario"]
+        if 'btnCreate' in request.POST:
+            if len(nombre) < 5:
+                cntx = {'error': 'El nombre del producto debe tener como minimo 5 caracteres'}
+            elif id < 1:
+                Usuario.objects.create(rut = rut , dv = dv, nombre = nombre, apellido = apellido, fechaNac = fechaNac, password = password, email = email, direccion = direccion, telefono = telefono, tipoDeUsuario = tipoDeUsuario)
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+            else:
+                fila = Usuario.objects.get(pk = id)
+                fila.rut = rut
+                fila.dv = dv
+                fila.nombre = nombre
+                fila.apellido = apellido
+                fila.fechaNac = fechaNac
+                fila.password = password
+                fila.email = email
+                fila.direccion = direccion
+                fila.telefono = telefono
+                fila.tipoDeUsuario = tipoDeUsuario
+                fila.save()
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+        elif 'btnRead' in request.POST:
+            listado = Usuario.objects.all()
+            if len(listado) >= 1:
+                cntx = {'listado': listado }
+            else:
+                cntx = {'error': 'Aun no existen productos para mostrar'}
+        elif 'btnDelete' in request.POST:
+            try:
+                fila = Usuario.objects.get(pk = id)
+                fila.delete()
+                cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
+            except:
+                cntx = {'error': 'Debe seleccionar item a eliminar'}
+
+    return render(request, 'usuario.html', cntx)
+  
+def viewReadUsuario(request, id):
+    cntx = {}
+    try:
+        fila = Usuario.objects.get(pk = id)
+        cntx = {'fila': fila}
+    except:
+        cntx = {'error': 'Item no encontrado'}
+
+    return render(request, 'usuario.html', cntx)
 

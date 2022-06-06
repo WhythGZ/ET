@@ -9,4 +9,6 @@ urlpatterns = [
     path('tipoUsuario/<int:id>/', views.viewReadTipoUsuario, name="tipoUsuario"),
     path('producto', views.viewProducto, name="producto"),
     path('producto/<int:id>/', views.viewReadProducto, name="producto"),
+    path('usuario', views.viewUsuario, name="usuario"),
+    path('usuario/<int:id>/', views.viewReadUsuario, name="usuario"),
     ]
