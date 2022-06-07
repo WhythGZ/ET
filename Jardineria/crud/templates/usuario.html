@@ -92,11 +92,9 @@
                                 <label for="cmbTipoUsuario">Tipos de Usuario<span class="text-danger">*</span></label>
                                 <select name="cmbTipoUsuario" class="cmbTipoUsuario form-select" id="cmbTipoUsuario" value="{{ fila.tipoUsuario }}">
                                   <option class="cmbTipoUsuario" hidden value="0">Seleccione una tipo de usuario</option>
-                                    {% if userCategories %}
                                     {% for fila in userCategories %}
                                       <option value="{{fila.id}}">{{fila.nombreTipoUsuario}}</option>
                                       {% endfor %}
-                                  {% endif %}
                                 </select>
                             </div>
                         </div>

@@ -218,8 +218,26 @@ def viewUsuario(request):
         telefono = request.POST["txtTel"]
         tipoDeUsuario = request.POST["cmbTipoUsuario"]
         if 'btnCreate' in request.POST:
-            if len(nombre) < 5:
-                cntx = {'error': 'El nombre del producto debe tener como minimo 5 caracteres'}
+            if len(rut)<8:
+                cntx = {'error': 'El rut del usuario debe tener como minimo 8 caracteres'}
+            elif len(dv)<1:
+                cntx = {'error': 'Debe especificar el digito verificador'}
+            elif len(nombre) < 3:
+                cntx = {'error': 'El nombre del usuario debe tener como minimo 3 caracteres'}
+            elif len(apellido) < 3:
+                cntx = {'error': 'El apellido del usuario debe tener como minimo 3 caracteres'}
+            # elif len(fechaNac) < 3:
+            #     cntx = {'error': 'El nombre del usuario debe tener como minimo 3 caracteres'}
+            elif len(password) < 8:
+                cntx = {'error': 'La contraseña del usuario debe tener como minimo 8 caracteres'}
+            elif len(email) < 8:
+                cntx = {'error': 'El correo del usuario debe tener como minimo 8 caracteres'}
+            elif len(direccion) < 8:
+                cntx = {'error': 'La direccion del usuario debe tener como minimo 8 caracteres'}
+            elif len(telefono) < 8:
+                cntx = {'error': 'El telefono del usuario debe tener como minimo 8 caracteres'}
+            elif tipoDeUsuario == '0':
+                cntx = {'error': 'Debe seleccionar un tipo de usuario'}
             elif id < 1:
                 Usuario.objects.create(rut = rut , dv = dv, nombre = nombre, apellido = apellido, fechaNac = fechaNac, password = password, email = email, direccion = direccion, telefono = telefono, tipoDeUsuario = tipoDeUsuario)
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}

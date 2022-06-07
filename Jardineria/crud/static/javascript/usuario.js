@@ -1,6 +1,6 @@
 $(function() // public static void main (JAVa)
 {
-    $(".btnEnviar").click(function()
+    $(".btnCreate").click(function()
     {
         let nombre = $(".txtNombre").val();
         let apellido = $(".txtApellido").val();
@@ -16,6 +16,7 @@ $(function() // public static void main (JAVa)
         let suma = 0;
         let rdv = '';
         let multiplicador = 2;
+        let tipoDeUsuario = $(".cmbTipoUsuario").val();
         for (let i = 0; i<rutInv.length; i++){
             if (multiplicador == 7){
                 suma += (rutInv[i] * parseInt(multiplicador));
@@ -50,9 +51,6 @@ $(function() // public static void main (JAVa)
             //     $('.txtDV').val(rdv);
             // }
         }
-        else if(dv!=rdv){
-            alert("El rut es invalido");
-        }
         else if(!nombre)
         {
             alert("Debe especificar el Nombre");
@@ -64,7 +62,7 @@ $(function() // public static void main (JAVa)
             $(".txtApellido").focus();
         }
         else if(!fecNac)
-        {
+        {   
             alert("Debe especificar su Fecha de Nacimiento");
             $(".fecNac").focus();
         }
@@ -115,6 +113,10 @@ $(function() // public static void main (JAVa)
         else if(telefono.length<11){
             alert("El telefono debe tener como minimo 11 caracteres");
             $(".txtTelefono").focus();
+        }
+        else if(tipoDeUsuario == '0'){
+            alert("Debe especificar el tipo de usuario");
+            $(".cmbTipoUsuario").focus();
         }
         else{
             alert("Registrado correctamente");
