@@ -42,17 +42,34 @@
                             <label for="txtNombre">Nombre Producto<span class="text-danger">*</span></label>
                             <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese el nombre del producto" class="txtNombre form-control" value="{{ fila.nombreProducto }}">
                         </div>
-                        <div class="mb-3 col-md-12">
-                          <label for="ctProducto">Categoria Producto<span class="text-danger">*</span></label>
-                          <select name="ctProducto" class="ctProducto form-select" id="ctProducto" value="{{ fila.categoriaProducto }}">
-                            <option class="ctProducto" hidden value="0">Seleccione una categoria</option>
-                              {% if productCategories %}
-                              {% for fila in productCategories %}
-                                <option value="{{fila.id}}">{{fila.nombreCategoria}}</option>
-                                {% endfor %}
-                            {% endif %}
-                          </select>
-                      </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label for="ctProducto">Categoria Producto<span class="text-danger">*</span></label>
+                                <select name="ctProducto" class="ctProducto form-select" id="ctProducto" value="{{ fila.categoriaProducto }}">
+                                  <option class="ctProducto" hidden value="0">Seleccione una categoria</option>
+                                    {% if productCategories %}
+                                    {% for fila in productCategories %}
+                                    {% if fila.activo %}
+                                      <option value="{{fila.id}}">{{fila.nombreCategoria}}</option>
+                                    {% endif %}
+                                      {% endfor %}
+                                  {% endif %}
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="ctMarca">Marca Producto<span class="text-danger">*</span></label>
+                                <select name="ctMarca" class="ctMarca form-select" id="ctMarca" value="{{ fila.marcaProducto }}">
+                                  <option class="ctMarca" hidden value="0">Seleccione una marca</option>
+                                    {% if productBrand %}
+                                    {% for fila in productBrand %}
+                                    {% if fila.activo %}
+                                      <option value="{{fila.id}}">{{fila.nombreMarca}}</option>
+                                    {% endif %}
+                                      {% endfor %}
+                                  {% endif %}
+                                </select>
+                            </div>
+                        </div>
                         <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="txtPrecio">Precio Producto<span class="text-danger">*</label>
@@ -99,6 +116,7 @@
                     <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Categoria</th>
+                    <th>Marca</th>
                     <th>Precio</th>
                     <th>Stock</th>
                     <th>Costo</th>
@@ -111,6 +129,7 @@
                     <td>{{ fila.codigoProducto }}</td>
                     <td>{{ fila.nombreProducto }}</td>
                     <td>{{ fila.categoriaProducto }}</td>
+                    <td>{{ fila.marcaProducto }}</td>
                     <td>{{ fila.precioProducto }}</td>
                     <td>{{ fila.stockProducto }}</td>
                     <td>{{ fila.precioCosto }}</td>

@@ -5,7 +5,7 @@
 <script src="/static/javascript/usuario.js"></script>
 {% endblock %}
 {% block tituloPestana %} 
-    CRUD Producto
+    CRUD Usuario
 {% endblock %}
 {% block tituloPagina %} 
     <div class="text-center mt-5">
@@ -93,7 +93,9 @@
                                 <select name="cmbTipoUsuario" class="cmbTipoUsuario form-select" id="cmbTipoUsuario" value="{{ fila.tipoUsuario }}">
                                   <option class="cmbTipoUsuario" hidden value="0">Seleccione una tipo de usuario</option>
                                     {% for fila in userCategories %}
+                                    {% if fila.activo %}
                                       <option value="{{fila.id}}">{{fila.nombreTipoUsuario}}</option>
+                                    {% endif %}
                                       {% endfor %}
                                 </select>
                             </div>

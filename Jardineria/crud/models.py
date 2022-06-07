@@ -12,7 +12,7 @@ class Usuario(models.Model):
     email = models.TextField(max_length=30)
     direccion = models.TextField(max_length=30)
     telefono = models.TextField(max_length=12)
-    tipoDeUsuario = models.TextField(max_length=20)
+    tipoDeUsuario = models.IntegerField()
 
     def __str__(self):
         return self.rut
@@ -20,7 +20,8 @@ class Usuario(models.Model):
 class Producto(models.Model):
     codigoProducto = models.IntegerField()
     nombreProducto = models.TextField(max_length=100)
-    categoriaProducto = models.TextField(max_length=50)
+    categoriaProducto = models.IntegerField()
+    marcaProducto = models.IntegerField()
     precioProducto = models.IntegerField()
     stockProducto = models.IntegerField()
     precioCosto = models.IntegerField()
@@ -49,3 +50,10 @@ class tipoUsuario(models.Model):
 
     def __str__(self):
         return self.nombreTipoUsuario
+
+class Marca(models.Model):
+    nombreMarca = models.TextField(max_length=50)
+    activo = models.BooleanField()
+
+    def __str__(self):
+        return self.nombreMarca

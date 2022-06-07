@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Categoria, Usuario, tipoPago, tipoUsuario, Producto
+from .models import Categoria, Marca, Usuario, tipoPago, tipoUsuario, Producto
 
 # Create your views here.
 
@@ -146,6 +146,7 @@ def viewReadTipoUsuario(request, id):
 
 
 def viewProducto(request):
+    cntx = {}
     productCategories = Categoria.objects.all()
     cntx = {'productCategories' : productCategories}
     if request.method == 'POST':
@@ -153,6 +154,7 @@ def viewProducto(request):
         codigoProducto = request.POST["txtCode"]
         nombreProducto = request.POST["txtNombre"]
         categoriaProducto = request.POST["ctProducto"]
+        marcaProducto = request.POST["ctMarca"]
         precioProducto = request.POST["txtPrecio"]
         stockProducto = request.POST["txtStock"]
         precioCosto = request.POST["txtCosto"]
@@ -163,13 +165,14 @@ def viewProducto(request):
             if len(nombreProducto) < 5:
                 cntx = {'error': 'El nombre del producto debe tener como minimo 5 caracteres'}
             elif id < 1:
-                Producto.objects.create(codigoProducto = codigoProducto, nombreProducto = nombreProducto, categoriaProducto = categoriaProducto, precioProducto = precioProducto, stockProducto = stockProducto, precioCosto = precioCosto, activo = activo)
+                Producto.objects.create(codigoProducto = codigoProducto, nombreProducto = nombreProducto, categoriaProducto = categoriaProducto, marcaProducto = marcaProducto, precioProducto = precioProducto, stockProducto = stockProducto, precioCosto = precioCosto, activo = activo)
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
             else:
                 fila = Producto.objects.get(pk = id)
                 fila.codigoProducto = codigoProducto
                 fila.nombreProducto = nombreProducto
                 fila.categoriaProducto = categoriaProducto
+                fila.marcaProducto = marcaProducto
                 fila.precioProducto = precioProducto
                 fila.stockProducto = stockProducto
                 fila.precioCosto = precioCosto
@@ -190,6 +193,11 @@ def viewProducto(request):
             except:
                 cntx = {'error': 'Debe seleccionar item a eliminar'}
 
+    productCategories = Categoria.objects.all()
+    productBrand = Marca.objects.all()
+    cntx["productCategories"] = productCategories
+    cntx["productBrand"] = productBrand
+
     return render(request, 'producto.html', cntx)
   
 def viewReadProducto(request, id):
@@ -203,8 +211,7 @@ def viewReadProducto(request, id):
     return render(request, 'producto.html', cntx)
 
 def viewUsuario(request):
-    userCategories = tipoUsuario.objects.all()
-    cntx = {'userCategories' : userCategories}
+    cntx = {}
     if request.method == 'POST':
         id = int("0" + request.POST["txtId"])
         rut = request.POST["txtRut"]
@@ -269,6 +276,9 @@ def viewUsuario(request):
             except:
                 cntx = {'error': 'Debe seleccionar item a eliminar'}
 
+    userCategories = tipoUsuario.objects.all()
+    cntx['userCategories'] = userCategories
+
     return render(request, 'usuario.html', cntx)
   
 def viewReadUsuario(request, id):
@@ -281,3 +291,48 @@ def viewReadUsuario(request, id):
 
     return render(request, 'usuario.html', cntx)
 
+def viewMarca(request):
+    cntx = {}
+    if request.method == 'POST':
+        id = int("0" + request.POST["txtId"])
+        nombreMarca = request.POST["txtNombre"]
+        activo = False
+        if 'chkActivo' in request.POST:
+            activo = True
+        if 'btnCreate' in request.POST:
+            if len(nombreMarca) < 5:
+                cntx = {'error': 'El nombre del tipo de usuario debe tener como minimo 5 caracteres'}
+            elif id < 1:
+                Marca.objects.create(nombreMarca = nombreMarca, activo = activo)
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+            else:
+                fila = Marca.objects.get(pk = id)
+                fila.nombreMarca = nombreMarca
+                fila.activo = activo
+                fila.save()
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+        elif 'btnRead' in request.POST:
+            listado = Marca.objects.all()
+            if len(listado) >= 1:
+                cntx = {'listado': listado }
+            else:
+                cntx = {'error': 'Aun no existen tipos de usuarios para mostrar'}
+        elif 'btnDelete' in request.POST:
+            try:
+                fila = Marca.objects.get(pk = id)
+                fila.delete()
+                cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
+            except:
+                cntx = {'error': 'Debe seleccionar item a eliminar'}
+
+    return render(request, 'marca.html', cntx)
+  
+def viewReadMarca(request, id):
+    cntx = {}
+    try:
+        fila = Marca.objects.get(pk = id)
+        cntx = {'fila': fila}
+    except:
+        cntx = {'error': 'Item no encontrado'}
+
+    return render(request, 'marca.html', cntx)
