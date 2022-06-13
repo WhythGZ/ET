@@ -6,10 +6,12 @@ $(function()
         if(!nombre){
             alert("Debe especificar el nombre de la categoria");
             $(".txtNombre").focus();
+            return false;
         }
         else if (nombre.length<5){
             alert("El nombre de la categoria debe tener como minimo 5 caracteres");
             $(".txtNombre").focus();
+            return false;
         }
         else{
             alert("Categoria registrada correctamente");

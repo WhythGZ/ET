@@ -162,8 +162,24 @@ def viewProducto(request):
         if 'chkActivo' in request.POST:
             activo = True
         if 'btnCreate' in request.POST:
-            if len(nombreProducto) < 5:
+            if len(codigoProducto) < 5:
+                cntx = {'error': 'El codigo del producto debe tener como minimo 5 caracteres'}
+            elif len(nombreProducto) < 5:
                 cntx = {'error': 'El nombre del producto debe tener como minimo 5 caracteres'}
+            elif (categoriaProducto) == '0':
+                cntx = {'error': 'Debe seleccionar la categoria del producto'}
+            elif (marcaProducto) == '0':
+                cntx = {'error': 'Debe seleccionar la marca del producto'}
+            elif len(precioProducto) < 3:
+                cntx = {'error': 'El precio del producto debe ser mayor a 500'}
+            elif (precioProducto) < 500:
+                cntx = {'error': 'El precio del producto debe ser mayor a 500'}
+            elif (stockProducto) < 1:
+                cntx = {'error': 'El stock del producto debe ser mayor a 0'}
+            elif len(precioCosto) < 3:
+                cntx = {'error': 'El costo del producto debe ser mayor a 500'}
+            elif (precioCosto) < 500:
+                cntx = {'error': 'El costo del producto debe ser mayor a 500'}
             elif id < 1:
                 Producto.objects.create(codigoProducto = codigoProducto, nombreProducto = nombreProducto, categoriaProducto = categoriaProducto, marcaProducto = marcaProducto, precioProducto = precioProducto, stockProducto = stockProducto, precioCosto = precioCosto, activo = activo)
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
@@ -207,7 +223,10 @@ def viewReadProducto(request, id):
         cntx = {'fila': fila}
     except:
         cntx = {'error': 'Item no encontrado'}
-
+    productCategories = Categoria.objects.all()
+    productBrand = Marca.objects.all()
+    cntx["productCategories"] = productCategories
+    cntx["productBrand"] = productBrand
     return render(request, 'producto.html', cntx)
 
 def viewUsuario(request):
@@ -289,6 +308,8 @@ def viewReadUsuario(request, id):
     except:
         cntx = {'error': 'Item no encontrado'}
 
+    userCategories = tipoUsuario.objects.all()
+    cntx['userCategories'] = userCategories
     return render(request, 'usuario.html', cntx)
 
 def viewMarca(request):
