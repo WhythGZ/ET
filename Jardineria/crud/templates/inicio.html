@@ -1,8 +1,12 @@
 {# Esto es un comentario #}
 {% extends "index.html" %}
 {# definir contenidos que tendrán cada uno de los bloques #}
-{% block script %} 
-{% endblock %}
+{% block script %} <script>
+  $(function()
+  {
+      $('#modal').click();
+  });
+</script> {% endblock %}
 {% block tituloPestana %} 
     Inicio
 {% endblock %}
@@ -37,7 +41,7 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, veritatis labore! Culpa error impedit sit, voluptatum, dignissimos velit cum ex libero, pariatur officiis numquam repudiandae vero consequuntur! Eius, dignissimos voluptatibus.
       </div>
       <div class="modal-footer">
-        <a href="pagar.html"><button type="button" class="btn btn-primary">Suscribirse</button></a>
+        <a href="{% url 'donar' %}"><button type="button" class="btn btn-primary">Suscribirse</button></a>
       </div>
     </div>
   </div>

@@ -30,10 +30,13 @@
                       Categorias
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="Suministros.html">Suministros</a></li>
-                      <li><a class="dropdown-item" href="Herramientas.html">Herramientas</a></li>
-                      <li><a class="dropdown-item" href="Maceteros.html">Maceteros</a></li>
-                      <li><a class="dropdown-item" href="Flores.html">Flores</a></li>
+                      {% if productCategories %}
+                        {% for categoria in productCategories %}
+                          {% if categoria.activo %}
+                          <li><a class="dropdown-item" href="{% url 'categoria'%}">{{categoria.nombreCategoria}}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
                     </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -69,7 +72,7 @@
               <form class="d-flex">
                 <a class="m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" role="button"
                 ><svg class="bi" width="22" height="22" fill="currentColor">
-                  <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+                  <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
                 </svg></a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                   <div class="offcanvas-header">

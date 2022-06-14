@@ -37,7 +37,8 @@ def viewTipoPago(request):
                 cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
             except:
                 cntx = {'error': 'Debe seleccionar item a eliminar'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'tipoPago.html', cntx)
     
 
@@ -48,7 +49,8 @@ def viewReadTipoPago(request, id):
         cntx = {'fila': fila}
     except:
         cntx = {'error': 'Item no encontrado'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'tipoPago.html', cntx)
 
 def viewCategoria(request):
@@ -84,7 +86,8 @@ def viewCategoria(request):
                 cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
             except:
                 cntx = {'error': 'Debe seleccionar item a eliminar'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'categoria.html', cntx)
   
 def viewReadCategoria(request, id):
@@ -94,7 +97,8 @@ def viewReadCategoria(request, id):
         cntx = {'fila': fila}
     except:
         cntx = {'error': 'Item no encontrado'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'categoria.html', cntx)
 
 
@@ -131,7 +135,8 @@ def viewTipoUsuario(request):
                 cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
             except:
                 cntx = {'error': 'Debe seleccionar item a eliminar'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'tipoUsuario.html', cntx)
   
 def viewReadTipoUsuario(request, id):
@@ -141,14 +146,13 @@ def viewReadTipoUsuario(request, id):
         cntx = {'fila': fila}
     except:
         cntx = {'error': 'Item no encontrado'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'tipoUsuario.html', cntx)
 
 
 def viewProducto(request):
     cntx = {}
-    productCategories = Categoria.objects.all()
-    cntx = {'productCategories' : productCategories}
     if request.method == 'POST':
         id = int("0" + request.POST["txtId"])
         codigoProducto = request.POST["txtCode"]
@@ -294,7 +298,8 @@ def viewUsuario(request):
                 cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
             except:
                 cntx = {'error': 'Debe seleccionar item a eliminar'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     userCategories = tipoUsuario.objects.all()
     cntx['userCategories'] = userCategories
 
@@ -307,7 +312,8 @@ def viewReadUsuario(request, id):
         cntx = {'fila': fila}
     except:
         cntx = {'error': 'Item no encontrado'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     userCategories = tipoUsuario.objects.all()
     cntx['userCategories'] = userCategories
     return render(request, 'usuario.html', cntx)
@@ -345,7 +351,8 @@ def viewMarca(request):
                 cntx = {'mensaje': 'Los datos fueron eliminados correctamente'}
             except:
                 cntx = {'error': 'Debe seleccionar item a eliminar'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'marca.html', cntx)
   
 def viewReadMarca(request, id):
@@ -355,7 +362,8 @@ def viewReadMarca(request, id):
         cntx = {'fila': fila}
     except:
         cntx = {'error': 'Item no encontrado'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'marca.html', cntx)
 
 def viewCliente(request):
@@ -407,21 +415,38 @@ def viewCliente(request):
                 fila.tipoDeUsuario = 3
                 fila.save()
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
-
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'cliente.html', cntx)
 
 def viewApi(request):
     cntx = {}
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'api.html', cntx)
 
 def viewLogin(request):
     cntx = {}
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'login.html', cntx)
 
 def viewReset(request):
     cntx = {}
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'reset.html', cntx)
 
 def viewInicio(request):
     cntx = {}
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
     return render(request, 'inicio.html', cntx)
+
+def viewDonar(request):
+    cntx = {}
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
+    payCategories = tipoPago.objects.all()
+    cntx["payCategories"] = payCategories
+    return render(request, 'donar.html', cntx)

@@ -24,5 +24,6 @@ urlpatterns = [
     path('login', views.viewLogin, name="login"),
     path('reset', views.viewReset, name="reset"),
     path('inicio', views.viewInicio, name="inicio"),
+    path('donar', views.viewDonar, name="donar"),
     path('crud/', include('crud.urls'))
 ]
