@@ -20,6 +20,7 @@ class Usuario(models.Model):
 class Producto(models.Model):
     codigoProducto = models.IntegerField()
     nombreProducto = models.TextField(max_length=100)
+    descripcionProducto = models.TextField()
     categoriaProducto = models.IntegerField()
     marcaProducto = models.IntegerField()
     precioProducto = models.IntegerField()

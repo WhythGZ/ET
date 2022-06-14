@@ -4,6 +4,7 @@ $(function()
     {
         let code = $(".txtCode").val();
         let nombre = $(".txtNombre").val();
+        let desc = $(".txtDesc").val();
         let precio = $(".txtPrecio").val();
         let stock = $(".txtStock").val();
         let categoria = $('.ctProducto').val();
@@ -26,6 +27,16 @@ $(function()
         }
         else if(nombre.length < 5){
             alert("El nombre del producto debe tener como minimo 5 caracteres");
+            $(".txtNombre").focus();
+            return false;
+        }
+        else if(!desc){
+            alert("Debe especificar la descripción del producto");
+            $(".txtNombre").focus();
+            return false;
+        }
+        else if(desc.length < 10){
+            alert("La descripción del producto debe tener como minimo 10 caracteres");
             $(".txtNombre").focus();
             return false;
         }
@@ -82,6 +93,13 @@ $(function()
     })
     let letras = "qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ1234567890'";
     $(".txtNombre").keypress(function(e)
+    {
+        let caracter = String.fromCharCode(e.which);
+        if(letras.indexOf(caracter) < 0)
+            return false;
+
+    })
+    $(".txtDesc").keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);
         if(letras.indexOf(caracter) < 0)

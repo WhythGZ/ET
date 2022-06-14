@@ -2,8 +2,6 @@ from django.shortcuts import render
 
 from .models import Categoria, Marca, Usuario, tipoPago, tipoUsuario, Producto
 
-# Create your views here.
-
 def viewTipoPago(request):
     cntx = {}
     if request.method == 'POST':
@@ -157,6 +155,7 @@ def viewProducto(request):
         id = int("0" + request.POST["txtId"])
         codigoProducto = request.POST["txtCode"]
         nombreProducto = request.POST["txtNombre"]
+        descripcionProducto = request.POST["txtDesc"]
         categoriaProducto = request.POST["ctProducto"]
         marcaProducto = request.POST["ctMarca"]
         precioProducto = request.POST["txtPrecio"]
@@ -170,27 +169,30 @@ def viewProducto(request):
                 cntx = {'error': 'El codigo del producto debe tener como minimo 5 caracteres'}
             elif len(nombreProducto) < 5:
                 cntx = {'error': 'El nombre del producto debe tener como minimo 5 caracteres'}
+            elif len(descripcionProducto) < 10:
+                cntx = {'error': 'La descripcion del producto debe tener como minimo 10 caracteres'}
             elif (categoriaProducto) == '0':
                 cntx = {'error': 'Debe seleccionar la categoria del producto'}
             elif (marcaProducto) == '0':
                 cntx = {'error': 'Debe seleccionar la marca del producto'}
             elif len(precioProducto) < 3:
                 cntx = {'error': 'El precio del producto debe ser mayor a 500'}
-            elif (precioProducto) < 500:
+            elif (int(precioProducto)) < 500:
                 cntx = {'error': 'El precio del producto debe ser mayor a 500'}
-            elif (stockProducto) < 1:
+            elif (int(stockProducto)) < 1:
                 cntx = {'error': 'El stock del producto debe ser mayor a 0'}
             elif len(precioCosto) < 3:
                 cntx = {'error': 'El costo del producto debe ser mayor a 500'}
-            elif (precioCosto) < 500:
+            elif (int(precioCosto)) < 500:
                 cntx = {'error': 'El costo del producto debe ser mayor a 500'}
             elif id < 1:
-                Producto.objects.create(codigoProducto = codigoProducto, nombreProducto = nombreProducto, categoriaProducto = categoriaProducto, marcaProducto = marcaProducto, precioProducto = precioProducto, stockProducto = stockProducto, precioCosto = precioCosto, activo = activo)
+                Producto.objects.create(codigoProducto = codigoProducto, nombreProducto = nombreProducto, descripcionProducto = descripcionProducto, categoriaProducto = categoriaProducto, marcaProducto = marcaProducto, precioProducto = precioProducto, stockProducto = stockProducto, precioCosto = precioCosto, activo = activo)
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
             else:
                 fila = Producto.objects.get(pk = id)
                 fila.codigoProducto = codigoProducto
                 fila.nombreProducto = nombreProducto
+                fila.descripcionProducto = descripcionProducto
                 fila.categoriaProducto = categoriaProducto
                 fila.marcaProducto = marcaProducto
                 fila.precioProducto = precioProducto
@@ -450,3 +452,28 @@ def viewDonar(request):
     payCategories = tipoPago.objects.all()
     cntx["payCategories"] = payCategories
     return render(request, 'donar.html', cntx)
+
+
+def viewProductos(request):
+    cntx = {}
+    products = Producto.objects.all()
+    cntx["products"] = products
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
+    return render(request, 'productos.html', cntx)
+
+def viewDetalleProductos(request, id):
+    cntx = {}
+    try:
+        fila = Producto.objects.get(pk = id)
+        cntx = {'fila':fila}
+    except:
+        cntx = {'error': 'Producto no encontrado'}
+    products = Producto.objects.all()
+    cntx["products"] = products
+    productCategories = Categoria.objects.all()
+    productBrand = Marca.objects.all()
+    cntx["productCategories"] = productCategories
+    cntx["productBrand"] = productBrand
+
+    return render(request, 'detalleProducto.html', cntx)

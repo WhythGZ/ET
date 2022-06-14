@@ -42,11 +42,15 @@
                             <label for="txtNombre">Nombre Producto<span class="text-danger">*</span></label>
                             <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese el nombre del producto" class="txtNombre form-control" value="{{ fila.nombreProducto }}">
                         </div>
+                        <div class="mb-3 col-md-12">
+                            <label for="txtDesc">Descripción Producto<span class="text-danger">*</span></label>
+                            <input type="text" id="txtDesc" name="txtDesc" placeholder="Ingrese una descripción para el Producto" class="txtDesc form-control" value="{{ fila.descripcionProducto }}">
+                        </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="ctProducto">Categoria Producto<span class="text-danger">*</span></label>
                                 <select name="ctProducto" class="ctProducto form-select" id="ctProducto" value="{{ fila.categoriaProducto }}">
-                                  <option class="ctProducto" hidden value="0">Seleccione una categoria</option>
+                                  <option selected class="ctProducto" hidden value="0">Seleccione una categoria</option>
                                     {% if productCategories %}
                                     {% for fila in productCategories %}
                                     {% if fila.activo %}
@@ -58,7 +62,7 @@
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="ctMarca">Marca Producto<span class="text-danger">*</span></label>
-                                <select name="ctMarca" class="ctMarca form-select" id="ctMarca" value="{{ fila.marcaProducto }}">
+                                <select selected name="ctMarca" class="ctMarca form-select" id="ctMarca" value="{{ fila.marcaProducto }}">
                                   <option class="ctMarca" hidden value="0">Seleccione una marca</option>
                                     {% if productBrand %}
                                     {% for fila in productBrand %}
@@ -115,6 +119,7 @@
                     <th>Id</th>
                     <th>Codigo</th>
                     <th>Nombre</th>
+                    <th>Descripción</th>
                     <th>Categoria</th>
                     <th>Marca</th>
                     <th>Precio</th>
@@ -128,6 +133,7 @@
                     <td>{{ fila.id }}</td>
                     <td>{{ fila.codigoProducto }}</td>
                     <td>{{ fila.nombreProducto }}</td>
+                    <td>{{ fila.descripcionProducto }}</td>
                     <td>{{ fila.categoriaProducto }}</td>
                     <td>{{ fila.marcaProducto }}</td>
                     <td>{{ fila.precioProducto }}</td>
