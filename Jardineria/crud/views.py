@@ -357,3 +357,71 @@ def viewReadMarca(request, id):
         cntx = {'error': 'Item no encontrado'}
 
     return render(request, 'marca.html', cntx)
+
+def viewCliente(request):
+    cntx = {}
+    if request.method == 'POST':
+        id = int("0" + request.POST["txtId"])
+        rut = request.POST["txtRut"]
+        dv = request.POST["txtDV"]
+        nombre = request.POST["txtNombre"]
+        apellido = request.POST["txtApellido"]
+        fechaNac = request.POST["fecNac"]
+        password = request.POST["txtPassword"]
+        email = request.POST["txtEmail"]
+        direccion = request.POST["txtDireccion"]
+        telefono = request.POST["txtTel"]
+        if 'btnCreate' in request.POST:
+            if len(rut)<8:
+                cntx = {'error': 'El rut del usuario debe tener como minimo 8 caracteres'}
+            elif len(dv)<1:
+                cntx = {'error': 'Debe especificar el digito verificador'}
+            elif len(nombre) < 3:
+                cntx = {'error': 'El nombre del usuario debe tener como minimo 3 caracteres'}
+            elif len(apellido) < 3:
+                cntx = {'error': 'El apellido del usuario debe tener como minimo 3 caracteres'}
+            # elif len(fechaNac) < 3:
+            #     cntx = {'error': 'El nombre del usuario debe tener como minimo 3 caracteres'}
+            elif len(password) < 8:
+                cntx = {'error': 'La contraseña del usuario debe tener como minimo 8 caracteres'}
+            elif len(email) < 8:
+                cntx = {'error': 'El correo del usuario debe tener como minimo 8 caracteres'}
+            elif len(direccion) < 8:
+                cntx = {'error': 'La direccion del usuario debe tener como minimo 8 caracteres'}
+            elif len(telefono) < 8:
+                cntx = {'error': 'El telefono del usuario debe tener como minimo 8 caracteres'}
+            elif id < 1:
+                Usuario.objects.create(rut = rut , dv = dv, nombre = nombre, apellido = apellido, fechaNac = fechaNac, password = password, email = email, direccion = direccion, telefono = telefono, tipoDeUsuario = 3)
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+            else:
+                fila = Usuario.objects.get(pk = id)
+                fila.rut = rut
+                fila.dv = dv
+                fila.nombre = nombre
+                fila.apellido = apellido
+                fila.fechaNac = fechaNac
+                fila.password = password
+                fila.email = email
+                fila.direccion = direccion
+                fila.telefono = telefono
+                fila.tipoDeUsuario = 3
+                fila.save()
+                cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
+
+    return render(request, 'cliente.html', cntx)
+
+def viewApi(request):
+    cntx = {}
+    return render(request, 'api.html', cntx)
+
+def viewLogin(request):
+    cntx = {}
+    return render(request, 'login.html', cntx)
+
+def viewReset(request):
+    cntx = {}
+    return render(request, 'reset.html', cntx)
+
+def viewInicio(request):
+    cntx = {}
+    return render(request, 'inicio.html', cntx)

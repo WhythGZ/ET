@@ -1,0 +1,122 @@
+{# Esto es un comentario #}
+{% extends "index.html" %}
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block script %} 
+{% endblock %}
+{% block tituloPestana %} 
+    Inicio
+{% endblock %}
+{% block tituloPagina %} 
+    <div class="text-center mt-5">
+        <h1></h1>
+    </div>
+{% endblock %}
+
+{% block mensaje %} 
+{% if mensaje %}
+    <div class="alert alert-success mt-5" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger mt-5" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+{% block contenido %} 
+<br>
+<button hidden type="button" id="modal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suscripción</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, veritatis labore! Culpa error impedit sit, voluptatum, dignissimos velit cum ex libero, pariatur officiis numquam repudiandae vero consequuntur! Eius, dignissimos voluptatibus.
+      </div>
+      <div class="modal-footer">
+        <a href="pagar.html"><button type="button" class="btn btn-primary">Suscribirse</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+          <h2 class="text-center mt-4 p-2 text-secondary">Categorias</h2>
+          <div class="container mt-3 border p-2 shadow bg-light">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2500"><a href="Suministros.html">
+                  <img src="/static/images/img2.jpg" class="d-block w-100" alt="...">
+                </a>
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Suministros</h5>
+                    <p>Aqui podras encontrar suministros como tierra de hojas, suplementos, semillas, etc...</p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2500"><a href="Herramientas.html">
+                  <img src="/static/images/img3.jpg" class="d-block w-100" alt="...">
+                </a>
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Herramientas</h5>
+                    <p>Aqui podras encontrar herramientas para la jardineria.</p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2500"><a href="Maceteros.html">
+                  <img src="/static/images/img4.png" class="d-block w-100" alt="...">
+                </a>
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Maceteros</h5>
+                    <p>Aqui podras encontrar maceteros de distintos litros.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+            <div class="container-fluid mt-5">
+              <div class="row offset-md-2 m-5 p-3">
+                <div class="card offset-md-1 col-md-2 p-2" style="width: 18rem;">
+                  <img src="/static/images/lirio.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">El Lilium es un género de herbáceas bulbosas perteneciente a la familia de las Liliáceas, es originaria de las zonas templadas de Eurasia y América del Norte. Las azucenas o lirios florecen a partir de primavera, pero es hasta el verano cuando alcanzan su mayor esplendor.</p>
+                    <a href="producto.html" class="btn btn-success">Ver producto</a>
+                  </div>
+                </div>
+                <div class="card col-md-2 offset-md-1 p-1" style="width: 18rem;">
+                  <img src="/static/images/hortensia.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Se trata de un arbusto caducifolio que crecer hasta una altura de entre 1 y 3 m-. Las hojas son opuestas, ovales, dentadas y acuminadas, de entre 7 y 20 cm de longitud, con bordes rudamente dentados. Las inflorescencias se agrupan en corimbos terminales, grandes cabezas globulares, de color blanco, azul, rojo o rosa.</p>
+                    <a href="producto.html" class="btn btn-success">Ver producto</a>
+                  </div>
+              </div>
+              <div class="card col-md-2 offset-md-1 p-1" style="width: 18rem;">
+                <img src="/static/images/hortensia.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Se trata de un arbusto caducifolio que crecer hasta una altura de entre 1 y 3 m-. Las hojas son opuestas, ovales, dentadas y acuminadas, de entre 7 y 20 cm de longitud, con bordes rudamente dentados. Las inflorescencias se agrupan en corimbos terminales, grandes cabezas globulares, de color blanco, azul, rojo o rosa.</p>
+                  <a href="producto.html" class="btn btn-success">Ver producto</a>
+                </div>
+            </div>
+                <div class="card col-md-2 offset-md-1 p-1" style="width: 18rem;">
+                  <img src="/static/images/tulipan.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Los tulipanes son plantas de raíz bulbosa y tallo liso. Presentan hojas grandes, radicales y lanceoladas. Su flor nace en lo alto del tallo durante la primavera. En su fruto en forma de cápsula se encuentran las semillas.</p>
+                    <a href="producto.html" class="btn btn-success">Ver producto</a>
+                  </div>
+              </div>
+            </div>
+{% endblock %}
+{% block listado %} 
+{% endblock %}

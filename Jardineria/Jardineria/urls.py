@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from crud import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api', views.viewApi, name="api"),
+    path('signin', views.viewCliente, name="signin"),
+    path('login', views.viewLogin, name="login"),
+    path('reset', views.viewReset, name="reset"),
+    path('inicio', views.viewInicio, name="inicio"),
     path('crud/', include('crud.urls'))
 ]
