@@ -80,6 +80,11 @@ $(function()
             $(".txtCosto").focus();
             return false;
         }
+        else if(costo>precio){
+            alert("El costo deber ser mayor que el precio del producto");
+            $(".txtCosto").focus();
+            return false;
+        }
         else{
             alert("Producto registrado correctamente")
         }
@@ -91,7 +96,7 @@ $(function()
         if(numeros.indexOf(caracter) < 0)
             return false;
     })
-    let letras = "qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ1234567890'";
+    let letras = "qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ1234567890' ";
     $(".txtNombre").keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);

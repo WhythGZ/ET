@@ -25,45 +25,45 @@
 {% endblock %}
 {% block contenido %} 
 <div class="container">
-    <div class="row mt-3">
-      <div class="offset-md-10 col-md-1">
-        <button class="btnCLP btn btn-outline-dark form-control">CLP</button>
-      </div>
-      <div class="col-md-1">
-        <button class="btnUSD btn btn-outline-success form-control">USD</button>
-      </div>
-    </div>
-  <p class="text-secondary">Encuentra todo tipo de producto para tu jardín: accesorios para limpieza y recolección de hojas, desmalezadores, palas y tijeras y tijerones para poda. Puedes potenciar el crecimiento de tu jardín con nuestros sistemas de riego.</p>
   <div class="row mt-3">
-    {% for producto in products %}
-    {% if producto.activo %}
-    {% for categoria in productCategories %}
-    {% if categoria.id == producto.categoriaProducto%}
-    <div class="border shadow mt-4 p-4">
-        <h3 class="text-dark text-center">{{categoria.nombreCategoria}}</h3>
-    {%endif%}
-    {% endfor %}
-    <div class="col-md-3 border m-4 container">
-      <h5 class="text-dark text-center mt-3">{{producto.nombreProducto}}</h5>
-        {% for categoria in productCategories %}
-        {% if categoria.id == producto.categoriaProducto%}
-        <h6 class="text-secondary text-center mt-1">{{categoria.nombreCategoria}}</h6>
-        {%endif%}
-        {% endfor %}
-        <a href="{% url 'productos' %}/{{ producto.id }}/"><img src="/static/images/imagen-no-encontrada.jpg" width="250" height="250" alt=""></a>
-    <span class="text-break text-dark mt-2">{{producto.descripcionProducto}}</span>
-    <h5 class="text-secondary text-center Price">${{producto.precioProducto}}</h5>
-    <div class="row">
-    <div class="offset-md-4">
-    <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
-      <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
-    </svg></a></button>
-  </div>
+    <div class="offset-md-10 col-md-1">
+      <button class="btnCLP btn btn-outline-dark form-control">CLP</button>
+    </div>
+    <div class="col-md-1">
+      <button class="btnUSD btn btn-outline-success form-control">USD</button>
     </div>
   </div>
+  <p class="text-secondary mt-4">Encuentra todo tipo de producto para tu jardín: accesorios para limpieza y recolección de hojas, desmalezadores, palas y tijeras y tijerones para poda. Puedes potenciar el crecimiento de tu jardín con nuestros sistemas de riego.</p>
+  {% for categoria in productCategories %}
+  {% if categoria.activo %}
+   <div class="border shadow mt-4 p-4 container col-12">
+    <h3 class="text-dark text-center">{{categoria.nombreCategoria}}</h3>
+    <div class="row"> 
+      {%for producto in products%}
+      {%if categoria.id == producto.categoriaProducto%}
+        <div class="border col-md-3 m-2">
+          <h5 class="text-dark text-center mt-3">{{producto.nombreProducto}}</h5>
+          <h6 class="text-secondary text-center mt-1">{{categoria.nombreCategoria}}</h6>
+          <a href="{% url 'productos' %}/{{ producto.id }}/"><img src="/static/images/imagen-no-encontrada.jpg" class="offset-md-1" width="250" height="250" alt=""></a>
+          <div class="offset-md-1 col-md-10 text-center">
+            <span class="text-break text-dark mt-2">{{producto.descripcionProducto}}</span>
+          </div>
+          <h5 class="mt-1 text-secondary text-center Price">${{producto.precioProducto}}</h5>
+          <div class="row">
+            <div class="offset-md-4">
+              <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+              </svg></button>
+            </div>
+          </div>
+        </div>
+      {%endif%}
+      {% endfor %}
+    </div>
+  </div>
+  {%endif%}
+  {%endfor%}
 </div>
-{%endif%}
-{%endfor%}
 {% endblock %}
 {% block listado %}
 {% endblock %}

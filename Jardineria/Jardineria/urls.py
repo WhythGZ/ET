@@ -25,5 +25,7 @@ urlpatterns = [
     path('reset', views.viewReset, name="reset"),
     path('inicio', views.viewInicio, name="inicio"),
     path('donar', views.viewDonar, name="donar"),
+    path('productos', views.viewProductos, name="productos"),
+    path('productos/<int:id>/', views.viewDetalleProductos, name="detalleProductos"),
     path('crud/', include('crud.urls'))
 ]
