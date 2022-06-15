@@ -80,8 +80,8 @@ $(function()
             $(".txtCosto").focus();
             return false;
         }
-        else if(costo>precio){
-            alert("El costo deber ser mayor que el precio del producto");
+        else if(parseInt(costo)>parseInt(precio)){
+            alert("El costo deber ser menor que el precio del producto");
             $(".txtCosto").focus();
             return false;
         }
