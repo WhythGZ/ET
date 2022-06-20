@@ -48,8 +48,8 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label for="ctProducto">Categoria Producto<span class="text-danger">*</span></label>
-                                <select name="ctProducto" class="ctProducto form-select" id="ctProducto" value="{{ fila.categoriaProducto }}">
+                                <label for="ctProducto">Categoria Producto <span class="text-danger">*</span></label>
+                                <select name="ctProducto" class="ctProducto form-select" id="ctProducto" value="{{ fila.nombreCategoria }}">
                                   <option selected class="ctProducto" hidden value="0">Seleccione una categoria</option>
                                     {% if productCategories %}
                                     {% for fila in productCategories %}

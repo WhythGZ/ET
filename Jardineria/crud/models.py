@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 
+class Donacion(models.Model):
+    donacion = models.IntegerField()
+    nombreDonante = models.TextField(max_length=20)
+    tipoPago = models.IntegerField()
+
 class Usuario(models.Model):
     rut = models.TextField(max_length=10)
     dv = models.TextField(max_length=1)

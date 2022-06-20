@@ -27,5 +27,6 @@ urlpatterns = [
     path('donar', views.viewDonar, name="donar"),
     path('productos', views.viewProductos, name="productos"),
     path('productos/<int:id>/', views.viewDetalleProductos, name="detalleProductos"),
-    path('crud/', include('crud.urls'))
+    path('crud/', include('crud.urls')),
+    path('api/', include('api.urls')),
 ]

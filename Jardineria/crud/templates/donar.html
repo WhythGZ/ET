@@ -34,17 +34,14 @@
                         {% csrf_token %}
                         <h3 class="mb-4">Donar</h3>
                         <div class="col-md-12 mt-2 mb-2">
+                            <input type="hidden" name="txtId" value="{{fila.id}}">
                             <label for="txtDonacion" class="text-secondary">Donación</label>
                             <input type="text" id="txtDonacion" placeholder="Ej: 1.000.000" class="txtDonacion form-control">
                         </div>
                         <div class="row">
                             <div class="col-md-6 mt-2 mb-2">
-                                <label for="cmbDonacion" class="text-secondary">A nombre de: </label>
-                            <select name="cmbDonacion" id="cmbDonacion" class="cmbDonacion form-select">
-                                <option hidden value="0">Seleccione una opción</option>
-                                <option value="1">Patricio Yañez</option>
-                                <option value="2">Fabian Carvacho</option>
-                            </select>
+                                <label for="txtNombre" class="text-secondary">Nombre</label>
+                                <input type="text" id="txtNombre" placeholder="Ej: Luis Pai" class="txtNombre form-control">
                             </div>
                             <div class="col-md-6 mt-2 mb-2">
                                 <label for="cmbMPago" class="text-secondary">Tipo de pago </label>

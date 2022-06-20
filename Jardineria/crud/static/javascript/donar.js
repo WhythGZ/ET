@@ -40,4 +40,11 @@ $(function() // public static void main (JAVa)
         if(numero.indexOf(caracter) < 0)
             return false;
     })
+    let letras = "qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ' ";
+    $(".txtNombre").keypress(function(e)
+    {
+        let caracter = String.fromCharCode(e.which);
+        if(letras.indexOf(caracter) < 0)
+            return false;
+    })
 });

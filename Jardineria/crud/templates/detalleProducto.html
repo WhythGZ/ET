@@ -61,27 +61,4 @@
 
 {% endblock %}
 {% block listado %} 
-<div class="container">
-    <div class="text-center mt-5">
-        <div class="col-md-12 table-responsive">
-            <table class="table table-light table-striped">
-                <tr class="table-dark">
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Activo</th>
-                    <th>Editar</th>
-                </tr>
-    {% for fila in listado %}
-                <tr>
-                    <td>{{ fila.id }}</td>
-                    <td>{{ fila.nombreCategoria }}</td>
-                    <td>{{ fila.activo }}</td>
-                    <td><a href="{% url 'categoria' %}/{{ fila.id }}/">Editar</a></td>
-                </tr>
-    {% endfor %}
-            </table>
-        </div>
-    </div>
-</div>
-{%endif%}
 {% endblock %}

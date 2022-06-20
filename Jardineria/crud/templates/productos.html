@@ -41,7 +41,7 @@
     <div class="row"> 
       {%for producto in products%}
       {%if categoria.id == producto.categoriaProducto%}
-        <div class="border col-md-3 m-2">
+        <div class="border col-md-3 m-1">
           <h5 class="text-dark text-center mt-3">{{producto.nombreProducto}}</h5>
           <h6 class="text-secondary text-center mt-1">{{categoria.nombreCategoria}}</h6>
           <a href="{% url 'productos' %}/{{ producto.id }}/"><img src="/static/images/imagen-no-encontrada.jpg" class="offset-md-1" width="250" height="250" alt=""></a>
