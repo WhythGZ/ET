@@ -25,7 +25,6 @@ $(function()
                 alert("No hay stock para la cantidad solicitada.")
             }
             else{
-
                 let newStock = parseInt(producto.stockProducto) - parseInt(needed);
                 let data = {"id":producto.id,
                             "codigoProducto":producto.codigoProducto,

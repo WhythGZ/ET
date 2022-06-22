@@ -27,6 +27,13 @@ def restar_producto(request, producto_id):
     carrito.restar(producto)
     return redirect("productos")
 
+def restar_producto_n(request, producto_id, n):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(pk=producto_id)
+    for x in range(n):
+        carrito.restar(producto)
+    return redirect("productos")
+
 def limpiar_carrito(request):
     carrito = Carrito(request)
     carrito.limpiar()

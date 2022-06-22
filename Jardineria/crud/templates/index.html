@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/static/javascript/carrito.js"></script>
     {% block script %} {% endblock %}
 <body>
     <header>
@@ -92,6 +93,7 @@
                           {%if request.session.carrito.items%}
                           {%for key, value in request.session.carrito.items%}
                           <tr>
+                            <td hidden class="product_id">{{value.producto_id}}:{{value.cantidad}}</td>
                             <td class="table-dark">{{value.nombre}}</td>
                             <td class="table-dark Price">${{value.acumulado}}</td>
                             <td class="table-dark">
@@ -117,10 +119,10 @@
                       <hr>
                       <div class="row text-center">
                         <div class="col-md-6">
-                          <a href="{%url 'CLS'%}" class="btn btn-danger">Limpiar</a>
+                          <a href="{%url 'CLS'%}" class="btnLimpiar btn btn-danger">Limpiar</a>
                         </div>
                         <div class="col-md-6">
-                          <a href="#" class="btn btn-success">Pagar</a>
+                          <a href="#" class="btnPagarCarrito btn btn-success">Pagar</a>
                         </div>
                       </div>
                     </div>
