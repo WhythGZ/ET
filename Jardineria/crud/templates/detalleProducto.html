@@ -50,15 +50,15 @@
 </div>
 <div class="row">
     <div class="offset-md-4 col-md-4">
+                <a href="{%url 'Add' fila.id%}">
                 <button type="button" class="btn-outline-primary m-2 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
                 <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
-                </svg></a></button>
+                </svg></button></a>
                 <input class="col-md-2 text-center txtStock" value="1" type="text" name="txtStock" id="txtStock">
                 <button class="btnComprar btn btn-outline-success m-2 col-md-4">Comprar</button>
     </div>
     </div>
 </div>
-
 {% endblock %}
 {% block listado %} 
 {% endblock %}
