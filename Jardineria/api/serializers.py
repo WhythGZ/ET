@@ -1,10 +1,5 @@
 from rest_framework import serializers
-from crud.models import Categoria, Donacion, Producto
-
-class CategoriaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model   = Categoria
-        fields  = ['id','nombreCategoria', 'activo']
+from crud.models import Donacion, Producto
 
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+
 from .models import Categoria, Marca, Usuario, tipoPago, tipoUsuario, Producto
 from django.shortcuts import render
-
+from crud.models import Producto
+    
 def viewTipoPago(request):
     cntx = {}
     if request.method == 'POST':

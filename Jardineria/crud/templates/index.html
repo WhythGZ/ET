@@ -72,14 +72,58 @@
                 </svg></a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                   <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Carrito de compras</h5>
+                    <h5 id="offcanvasRightLabel"><span class="text-dark h2">Carrito de compras</span></h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                   </div>
                   <div class="offcanvas-body">
-                    Usted lleva: 
-                  </div>
-                  <button class="btn btn-info">Pagar</button>
-                  </div>
+                    <div class="alert alert-default" role="alert" >
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th class="table-light" scope="row" colspan="3" class="text-centers">
+                              Carrito
+                            </th>
+                          </tr>
+                          <th class="table-dark">Nombre</th>
+                          <th class="table-dark">Precio</th>
+                          <th class="table-dark">Cantidad</th>
+                        </thead>
+                        <tbody>
+                          {%if request.session.carrito.items%}
+                          {%for key, value in request.session.carrito.items%}
+                          <tr>
+                            <td class="table-dark">{{value.nombre}}</td>
+                            <td class="table-dark">${{value.acumulado}}</td>
+                            <td class="table-dark">
+                              {{value.cantidad}}
+                              <a href="{%url 'Add' value.producto_id %}" class="badge btn btn-success badge-dark">+</a>
+                              <a href="{%url 'Sub' value.producto_id %}" class="badge btn btn-danger badge-dark">-</a>
+                            </td>
+                          </tr>
+                          {%endfor%}
+                          {%else%}
+                          <tr>
+                            <td colspan="3">
+                              <div class="alert alert-danger text-center">Sin Productos</div>
+                            </td>
+                          </tr>
+                          {%endif%}
+                          <tr class="table-dark">
+                            <th>Total:</th>
+                            <td colspan="3">${{total_carrito}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <hr>
+                      <div class="row text-center">
+                        <div class="col-md-6">
+                          <a href="{%url 'CLS'%}" class="btn btn-danger">Limpiar</a>
+                        </div>
+                        <div class="col-md-6">
+                          <a href="#" class="btn btn-success">Pagar</a>
+                        </div>
+                      </div>
+                    </div>
               </form>
             </div>
           </nav>    

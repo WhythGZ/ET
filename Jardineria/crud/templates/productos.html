@@ -51,9 +51,11 @@
           <h5 class="mt-1 text-secondary text-center Price">${{producto.precioProducto}}</h5>
           <div class="row">
             <div class="offset-md-4">
+              <a href="{%url 'Add' producto.id%}">
               <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
               <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
               </svg></button>
+              </a>
             </div>
           </div>
         </div>

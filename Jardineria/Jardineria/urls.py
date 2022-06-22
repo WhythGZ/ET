@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from crud import views
+from shopyCart.views import agregar_producto, eliminar_producto, limpiar_carrito, restar_producto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,8 @@ urlpatterns = [
     path('crud/', include('crud.urls')),
     path('api/', include('api.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('add/<int:producto_id>/', agregar_producto, name="Add"),
+    path('remove/<int:producto_id>/', restar_producto, name="Sub"),
+    path('delete/<int:producto_id>/', eliminar_producto, name="Del"),
+    path('clear/', limpiar_carrito, name="CLS"),
 ]

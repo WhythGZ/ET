@@ -31,8 +31,7 @@ REST_FRAMEWORK = {
 'DEFAULT_AUTHENTICATION_CLASSES': (
 'rest_framework.authentication.TokenAuthentication',
 'rest_framework.authentication.BasicAuthentication',
-)
-}
+)}
 
 
 # Application definition
@@ -46,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crud',
     'api',
+    'shopyCart',
 ]
 
 
@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'shopyCart.context_processor.total_carrito',
             ],
         },
     },
