@@ -11,6 +11,7 @@ $(function()
             amounts.push(x.toString().slice(':')[2]);
         };
         for(let i = 0;i<data.length;i++){
+            let url = 'http://127.0.0.1:8000/remove/'+ids[i]+'/'+amounts[i]+'/';
             $.getJSON('http://127.0.0.1:8000/api/apiProductoDetalle/'+ids[i]+'/', function(data) {
                 let producto = data;
                 stockProducto = producto.stockProducto;
@@ -21,8 +22,6 @@ $(function()
                     alert("No hay stock para la cantidad solicitada. ("+producto.nombreProducto+")");
                 }
                 else{
-                    let url = 'http://127.0.0.1:8000/remove/'+ids[i]+'/'+amounts[i]+'/';
-                    $(location).prop('href', url);
                     let newStock = parseInt(producto.stockProducto) - parseInt(amounts[i]);
                     let data = {"id":producto.id,
                             "codigoProducto":producto.codigoProducto,
@@ -40,11 +39,11 @@ $(function()
                         method: 'PUT',
                         dataType: 'json',
                         data: JSON.stringify(data)}).done(function(){
-                            alert("Producto comprado exitosamente")
                             console.log('SUCCESS');
                         }).fail(function (msg) {
                             console.log('FAIL');
                         });
+                    $(location).prop('href', url);
                 };
             });
         };
