@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
 from .models import Categoria, Marca, Usuario, tipoPago, tipoUsuario, Producto
+from django.shortcuts import render
 
 def viewTipoPago(request):
     cntx = {}
@@ -445,6 +446,7 @@ def viewInicio(request):
     cntx["productCategories"] = productCategories
     return render(request, 'inicio.html', cntx)
 
+@login_required
 def viewDonar(request):
     cntx = {}
     productCategories = Categoria.objects.all()
@@ -452,7 +454,6 @@ def viewDonar(request):
     payCategories = tipoPago.objects.all()
     cntx["payCategories"] = payCategories
     return render(request, 'donar.html', cntx)
-
 
 def viewProductos(request):
     cntx = {}

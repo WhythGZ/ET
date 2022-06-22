@@ -18,6 +18,7 @@ class Usuario(models.Model):
     direccion = models.TextField(max_length=30)
     telefono = models.TextField(max_length=12)
     tipoDeUsuario = models.IntegerField()
+    suscrito = models.BooleanField()
 
     def __str__(self):
         return self.rut

@@ -2,55 +2,34 @@ $(function() // public static void main (JAVa)
 {
     $(".btnEnviar").click(function()
     {
-        let Email = $(".txtEmail").val();
-        let Password = $(".txtPassword").val();
+        let Username = $(".id_username").val();
+        let Password = $(".id_password").val();
 
-        if(!Email)
+        if(!Username)
         {
-            alert("Debe especificar el correo");
-            $(".txtEmail").focus();
+            alert("Debe especificar el nombre de usuario");
+            $(".id_username").focus();
         }     
-        else if(Email.length<8){
-            alert("El correo debe tener como minimo 8 caracteres")
-            $(".txtEmail").focus();
-        }
-        else if(Email.indexOf('@', 0) == -1 || Email.indexOf('.', 0) == -1) {
-            alert('El correo electrónico introducido no es correcto.');
-            return false;
-        }      
+        else if(Username.length<4){
+            alert("El nombre de usuario debe tener como minimo 4 caracteres")
+            $(".id_username").focus();
+        }    
         else if(!Password)
         {
             alert("Debe especificar la contraseña");
-            $(".txtPassword").focus();
+            $(".id_password").focus();
         }
         else if(Password.length<8)
         {
             alert("La contraseña debe tener como minimo 8 caracteres")
-            $(".txtPassword").focus();
-        }  
-        else{
-            alert("Iniciando sesion...");
+            $(".id_password").focus();
         }
     });
-    let correo = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ@.1234567890_-';
-    $(".txtEmail").keypress(function(e)
-    {
-        let caracter = String.fromCharCode(e.which);
-        if(correo.indexOf(caracter) < 0)
-            return false;
-    })
     let letras = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ';
-    $(".txtNombre").keypress(function(e)
+    $(".id_username").keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);
         if(letras.indexOf(caracter) < 0)
             return false;
-    })
-    $(".txtApellido").keypress(function(e)
-    {
-        let caracter = String.fromCharCode(e.which);
-        if(letras.indexOf(caracter) < 0)
-            return false;
-
     })
 });

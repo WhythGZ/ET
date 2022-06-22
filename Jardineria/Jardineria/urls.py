@@ -23,10 +23,11 @@ urlpatterns = [
     path('signin', views.viewCliente, name="signin"),
     path('login', views.viewLogin, name="login"),
     path('reset', views.viewReset, name="reset"),
-    path('inicio', views.viewInicio, name="inicio"),
+    path('', views.viewInicio, name="inicio"),
     path('donar', views.viewDonar, name="donar"),
     path('productos', views.viewProductos, name="productos"),
     path('productos/<int:id>/', views.viewDetalleProductos, name="detalleProductos"),
     path('crud/', include('crud.urls')),
     path('api/', include('api.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

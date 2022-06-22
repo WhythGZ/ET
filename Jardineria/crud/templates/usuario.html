@@ -136,6 +136,7 @@
                     <th>Direccion</th>
                     <th>Telefono</th>
                     <th>Tipo de Usuario</th>
+                    <th>Suscrito</th>
                     <th>Editar</th>
                 </tr>
     {% for fila in listado %}
@@ -151,6 +152,7 @@
                     <td>{{ fila.direccion }}</td>
                     <td>{{ fila.telefono }}</td>
                     <td>{{ fila.tipoDeUsuario }}</td>
+                    <td>{{ fila.suscrito }}</td>
                     <td><a href="{% url 'usuario' %}/{{ fila.id }}/">Editar</a></td>
                 </tr>
     {% endfor %}

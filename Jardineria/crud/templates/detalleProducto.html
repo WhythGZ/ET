@@ -2,7 +2,7 @@
 {% extends "index.html" %}
 {# definir contenidos que tendrán cada uno de los bloques #}
 {% block script %} 
-<script src="/static/javascript/categoria.js"></script>
+<script src="/static/javascript/comprar.js"></script>
 {% endblock %}
 {% block tituloPestana %} 
     CRUD Categoria
@@ -50,11 +50,11 @@
 </div>
 <div class="row">
     <div class="offset-md-4 col-md-4">
-            <button type="button" class="btn-outline-primary m-2 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
-              <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
-            </svg></a></button>
-                <input class="col-md-2 text-center" value="1" type="text" name="" id="">
-            <button class="btn btn-outline-success m-2 col-md-4">Comprar</button>
+                <button type="button" class="btn-outline-primary m-2 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+                <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+                </svg></a></button>
+                <input class="col-md-2 text-center txtStock" value="1" type="text" name="txtStock" id="txtStock">
+                <button class="btnComprar btn btn-outline-success m-2 col-md-4">Comprar</button>
     </div>
     </div>
 </div>
