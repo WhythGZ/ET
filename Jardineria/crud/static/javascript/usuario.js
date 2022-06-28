@@ -7,6 +7,7 @@ $(function() // public static void main (JAVa)
         let fecNac = $(".fecNac").val();
         let rut = $(".txtRut").val();
         let dv = $(".txtDV").val();
+        let username = $(".txtUsername").val();
         let password1 = $(".txtPassword").val();
         let password2 = $(".txtPassword2").val();
         let email = $(".txtEmail").val();
@@ -50,6 +51,10 @@ $(function() // public static void main (JAVa)
             // else{
             //     $('.txtDV').val(rdv);
             // }
+        }
+        else if(!username){
+            alert("Debe especificar el Nombre de usuario");
+            $(".txtUsername").focus();
         }
         else if(!nombre)
         {

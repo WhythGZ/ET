@@ -46,14 +46,18 @@
                               <input type="text" id="txtDV" name="txtDV" maxlength="1" minlength="1" placeholder="Ingrese su DV" class="txtDV form-control" value="{{fila.dv}}">
                             </div>
                           </div>
+                          <div class="mb-3 col-md-12">
+                            <label for="txtUsername">Nombre de Usuario<span class="text-danger">*</span></label>
+                            <input type="text" id="txtUsername" name="txtUsername" placeholder="Ingrese su Nombre de Usuario" class="txtUsername form-control" value="{{fila.username}}">
+                          </div>
                           <div class="row">
                           <div class="mb-3 col-md-6">
                               <label for="txtNombre">Nombre<span class="text-danger">*</span></label>
-                              <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese su Nombre" class="txtNombre form-control" value="{{fila.nombre}}">
+                              <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese su Nombre" class="txtNombre form-control" value="{{fila.first_name}}">
                           </div>
                           <div class="mb-3 col-md-6">
                               <label for="txtApellido">Apellido<span class="text-danger">*</label>
-                              <input type="text" id="txtApellido" name="txtApellido" placeholder="Ingrese su Apellido" class="txtApellido form-control" value="{{fila.apellido}}">
+                              <input type="text" id="txtApellido" name="txtApellido" placeholder="Ingrese su Apellido" class="txtApellido form-control" value="{{fila.last_name}}">
                           </div>
                           <div class="mb-3 col-md-12">
                               <label for="fecNac">Fecha Nacimiento<span class="text-danger">*</span> </label>
@@ -63,11 +67,11 @@
                         <div class="row">
                           <div class="mb-3 col-md-6">
                               <label for="txtPassword">Contraseña<span class="text-danger">*</label>
-                              <input type="password" id="txtPassword" maxlength="25" minlength="8" name="txtPassword" placeholder="Ingrese su Contraseña" class="txtPassword form-control" value="{{fila.password}}">
+                              <input type="password" id="txtPassword" maxlength="25" minlength="8" name="txtPassword" placeholder="Ingrese su Contraseña" class="txtPassword form-control" value="">
                           </div>
                           <div class="mb-3 col-md-6">
                               <label for="txtPassword2">Confirmar Contraseña<span class="text-danger">*</label>
-                              <input type="password" id="txtPassword2" maxlength="25" minlength="8" name="txtPassword2" placeholder="Confirme su Contraseña" class="txtPassword2 form-control" value="{{fila.password}}">
+                              <input type="password" id="txtPassword2" maxlength="25" minlength="8" name="txtPassword2" placeholder="Confirme su Contraseña" class="txtPassword2 form-control" value="">
                           </div>
                       </div>
                       </div>
@@ -128,6 +132,7 @@
                     <th>Id</th>
                     <th>Rut</th>
                     <th>Dv</th>
+                    <th>Nombre de Usuario</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Fecha Nac</th>
@@ -144,10 +149,11 @@
                     <td>{{ fila.id }}</td>
                     <td>{{ fila.rut }}</td>
                     <td>{{ fila.dv }}</td>
-                    <td>{{ fila.nombre }}</td>
-                    <td>{{ fila.apellido }}</td>
+                    <td>{{ fila.username }}</td>
+                    <td>{{ fila.first_name }}</td>
+                    <td>{{ fila.last_name }}</td>
                     <td>{{ fila.fechaNac }}</td>
-                    <td>**************</td>
+                    <td>{{fila.password}}</td>
                     <td>{{ fila.email }}</td>
                     <td>{{ fila.direccion }}</td>
                     <td>{{ fila.telefono }}</td>

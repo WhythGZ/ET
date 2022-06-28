@@ -55,7 +55,11 @@
                 <use xlink:href="/static/images/bootstrap-icons/bootstrap-icons.svg#cart4"/>
                 </svg></button></a>
                 <input class="col-md-2 text-center txtStock" value="1" type="text" name="txtStock" id="txtStock">
+                {% if user.is_authenticated %}
                 <button class="btnComprar btn btn-outline-success m-2 col-md-4">Comprar</button>
+                {%else%}
+                <button class="btnComprarLogout btn btn-outline-success m-2 col-md-4">Comprar</button>
+                {%endif%}
     </div>
     </div>
 </div>

@@ -26,16 +26,9 @@ $(function()
             }
             else{
                 let newStock = parseInt(producto.stockProducto) - parseInt(needed);
-                let data = {"id":producto.id,
-                            "codigoProducto":producto.codigoProducto,
-                            "nombreProducto":producto.nombreProducto,
-                            "descripcionProducto":producto.descripcionProducto,
-                            "categoriaProducto":producto.categoriaProducto,
-                            "marcaProducto":producto.marcaProducto,
-                            "precioProducto":producto.precioProducto,
-                            "stockProducto": newStock,
-                            "precioCosto":producto.precioCosto,
-                            "activo":producto.activo
+                let data = {
+                    "id":producto.id,
+                    "stockProducto": newStock,
                 }
                 $.ajax({
                     url: 'http://127.0.0.1:8000/api/apiProductoDetalle/'+path[4]+'/',
@@ -52,11 +45,16 @@ $(function()
             console.log('Error al consumir la API!');  
         });
     });
+    $(".btnComprarLogout").click(function()
+    {
+        let url = 'http://127.0.0.1:8000/accounts/login/';
+        $(location).prop('href', url);
+    });
     let numero = '1234567890';
     $(".txtStock").keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);
         if(numero.indexOf(caracter) < 0)
             return false;
-    })
+    });
 });

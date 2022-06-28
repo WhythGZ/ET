@@ -35,15 +35,11 @@
                         <h3 class="mb-4">Donar</h3>
                         <div class="col-md-12 mt-2 mb-2">
                             <input type="hidden" name="txtId" value="{{fila.id}}">
+                            <input type="text" hidden name="txtUser" class="txtUser" value="{{user.username}}">
                             <label for="txtDonacion" class="text-secondary">Donación</label>
                             <input type="text" id="txtDonacion" placeholder="Ej: 1.000.000" class="txtDonacion form-control">
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 mt-2 mb-2">
-                                <label for="txtNombre" class="text-secondary">Nombre</label>
-                                <input type="text" id="txtNombre" placeholder="Ej: Luis Pai" class="txtNombre form-control">
-                            </div>
-                            <div class="col-md-6 mt-2 mb-2">
+                            <div class="col-md-12 mt-2 mb-2">
                                 <label for="cmbMPago" class="text-secondary">Tipo de pago </label>
                                 <select name="cmbMPago" id="cmbMPago" class="cmbMPago form-select">
                                     <option hidden value="0">Seleccione una opción</option>
@@ -56,7 +52,6 @@
                                     {% endif %}
                                 </select>
                             </div>
-                        </div>
                         <div class="row">
                             <div class="offset-md-4 mt-4 col-md-2">
                                 <input type="submit" class="p-2 btn btn-outline-success btnEnviar form-control" value="Donar">

@@ -8,7 +8,7 @@ $(function()
             $(".txtNombre").focus();
             return false;
         }
-        else if (nombre.length<5){
+        else if (nombre.length<4){
             alert("El nombre de la marca debe tener como minimo 5 caracteres");
             $(".txtNombre").focus();
             return false;

@@ -1,5 +1,8 @@
+from datetime import time
+from time import timezone
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 # Create your models here.
 
 class Donacion(models.Model):
@@ -7,18 +10,26 @@ class Donacion(models.Model):
     nombreDonante = models.TextField(max_length=20)
     tipoPago = models.IntegerField()
 
-class Usuario(models.Model):
+class Usuario(AbstractUser):
     rut = models.TextField(max_length=10)
     dv = models.TextField(max_length=1)
-    nombre = models.TextField(max_length=20)
-    apellido = models.TextField(max_length=20)
-    fechaNac = models.DateField()
-    password = models.TextField()
+    first_name = models.TextField(max_length=20)
+    last_name = models.TextField(max_length=20)
+    fechaNac = models.DateField(null=True)
+    password = models.CharField(max_length=128)
     email = models.TextField(max_length=30)
     direccion = models.TextField(max_length=30)
     telefono = models.TextField(max_length=12)
-    tipoDeUsuario = models.IntegerField()
-    suscrito = models.BooleanField()
+    tipoDeUsuario = models.IntegerField(default=0)
+    last_login = models.DateField(default=timezone.now)
+    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
+    date_joined = models.DateField(default=timezone.now)
+    username = models.TextField(max_length=20, unique=True)
+    suscrito = models.BooleanField(default=False)
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.rut

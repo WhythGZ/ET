@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.decorators import login_required, permission_required
 from .models import Categoria, Marca, Usuario, tipoPago, tipoUsuario, Producto
+from django.contrib.auth.hashers import make_password
 from django.shortcuts import render
 from crud.models import Producto
-    
+@login_required
+@permission_required('is_superuser')    
 def viewTipoPago(request):
     cntx = {}
     if request.method == 'POST':
@@ -43,6 +44,8 @@ def viewTipoPago(request):
     return render(request, 'tipoPago.html', cntx)
     
 
+@login_required
+@permission_required('is_superuser')
 def viewReadTipoPago(request, id):
     cntx = {}
     try:
@@ -54,6 +57,8 @@ def viewReadTipoPago(request, id):
     cntx["productCategories"] = productCategories
     return render(request, 'tipoPago.html', cntx)
 
+@login_required
+@permission_required('is_superuser')
 def viewCategoria(request):
     cntx = {}
     if request.method == 'POST':
@@ -90,7 +95,9 @@ def viewCategoria(request):
     productCategories = Categoria.objects.all()
     cntx["productCategories"] = productCategories
     return render(request, 'categoria.html', cntx)
-  
+
+@login_required
+@permission_required('is_superuser')  
 def viewReadCategoria(request, id):
     cntx = {}
     try:
@@ -102,7 +109,8 @@ def viewReadCategoria(request, id):
     cntx["productCategories"] = productCategories
     return render(request, 'categoria.html', cntx)
 
-
+@login_required
+@permission_required('is_superuser')
 def viewTipoUsuario(request):
     cntx = {}
     if request.method == 'POST':
@@ -139,7 +147,9 @@ def viewTipoUsuario(request):
     productCategories = Categoria.objects.all()
     cntx["productCategories"] = productCategories
     return render(request, 'tipoUsuario.html', cntx)
-  
+
+@login_required
+@permission_required('is_superuser')  
 def viewReadTipoUsuario(request, id):
     cntx = {}
     try:
@@ -152,6 +162,8 @@ def viewReadTipoUsuario(request, id):
     return render(request, 'tipoUsuario.html', cntx)
 
 
+@login_required
+@permission_required('is_superuser')
 def viewProducto(request):
     cntx = {}
     if request.method == 'POST':
@@ -224,7 +236,9 @@ def viewProducto(request):
     cntx["productBrand"] = productBrand
 
     return render(request, 'producto.html', cntx)
-  
+
+@login_required
+@permission_required('is_superuser')  
 def viewReadProducto(request, id):
     cntx = {}
     try:
@@ -238,32 +252,44 @@ def viewReadProducto(request, id):
     cntx["productBrand"] = productBrand
     return render(request, 'producto.html', cntx)
 
+@login_required
+@permission_required('is_superuser')
 def viewUsuario(request):
     cntx = {}
     if request.method == 'POST':
         id = int("0" + request.POST["txtId"])
         rut = request.POST["txtRut"]
         dv = request.POST["txtDV"]
+        username = request.POST["txtUsername"]
         nombre = request.POST["txtNombre"]
         apellido = request.POST["txtApellido"]
         fechaNac = request.POST["fecNac"]
-        password = request.POST["txtPassword"]
+        raw_password = request.POST["txtPassword"]
+        password = make_password(raw_password, salt=None, hasher='default')
         email = request.POST["txtEmail"]
         direccion = request.POST["txtDireccion"]
         telefono = request.POST["txtTel"]
         tipoDeUsuario = request.POST["cmbTipoUsuario"]
+        if (tipoDeUsuario == '1'):
+            is_super = True
+            is_staff = True
+        else:
+            is_super = False
+            is_staff = False
         if 'btnCreate' in request.POST:
             if len(rut)<8:
                 cntx = {'error': 'El rut del usuario debe tener como minimo 8 caracteres'}
             elif len(dv)<1:
                 cntx = {'error': 'Debe especificar el digito verificador'}
+            elif len(username) < 3:
+                cntx = {'error': 'El nombre de usuario debe tener como minimo 3 caracteres'}
             elif len(nombre) < 3:
                 cntx = {'error': 'El nombre del usuario debe tener como minimo 3 caracteres'}
             elif len(apellido) < 3:
                 cntx = {'error': 'El apellido del usuario debe tener como minimo 3 caracteres'}
             # elif len(fechaNac) < 3:
             #     cntx = {'error': 'El nombre del usuario debe tener como minimo 3 caracteres'}
-            elif len(password) < 8:
+            elif len(raw_password) < 8:
                 cntx = {'error': 'La contraseña del usuario debe tener como minimo 8 caracteres'}
             elif len(email) < 8:
                 cntx = {'error': 'El correo del usuario debe tener como minimo 8 caracteres'}
@@ -274,20 +300,24 @@ def viewUsuario(request):
             elif tipoDeUsuario == '0':
                 cntx = {'error': 'Debe seleccionar un tipo de usuario'}
             elif id < 1:
-                Usuario.objects.create(rut = rut , dv = dv, nombre = nombre, apellido = apellido, fechaNac = fechaNac, password = password, email = email, direccion = direccion, telefono = telefono, tipoDeUsuario = tipoDeUsuario)
+                password = make_password(raw_password, salt=None, hasher='default')
+                Usuario.objects.create(rut = rut , dv = dv, username = username, first_name = nombre, last_name = apellido, fechaNac = fechaNac, password = password, email = email, direccion = direccion, telefono = telefono, tipoDeUsuario = tipoDeUsuario, is_superuser = is_super, is_staff = is_staff)
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
             else:
                 fila = Usuario.objects.get(pk = id)
                 fila.rut = rut
                 fila.dv = dv
-                fila.nombre = nombre
-                fila.apellido = apellido
+                fila.username = username
+                fila.first_name = nombre
+                fila.last_name = apellido
                 fila.fechaNac = fechaNac
                 fila.password = password
                 fila.email = email
                 fila.direccion = direccion
                 fila.telefono = telefono
                 fila.tipoDeUsuario = tipoDeUsuario
+                fila.is_superuser = is_super
+                fila.is_staff = is_staff
                 fila.save()
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
         elif 'btnRead' in request.POST:
@@ -309,7 +339,9 @@ def viewUsuario(request):
     cntx['userCategories'] = userCategories
 
     return render(request, 'usuario.html', cntx)
-  
+
+@login_required
+@permission_required('is_superuser')  
 def viewReadUsuario(request, id):
     cntx = {}
     try:
@@ -323,6 +355,8 @@ def viewReadUsuario(request, id):
     cntx['userCategories'] = userCategories
     return render(request, 'usuario.html', cntx)
 
+@login_required
+@permission_required('is_superuser')
 def viewMarca(request):
     cntx = {}
     if request.method == 'POST':
@@ -332,7 +366,7 @@ def viewMarca(request):
         if 'chkActivo' in request.POST:
             activo = True
         if 'btnCreate' in request.POST:
-            if len(nombreMarca) < 5:
+            if len(nombreMarca) < 4:
                 cntx = {'error': 'El nombre del tipo de usuario debe tener como minimo 5 caracteres'}
             elif id < 1:
                 Marca.objects.create(nombreMarca = nombreMarca, activo = activo)
@@ -359,7 +393,9 @@ def viewMarca(request):
     productCategories = Categoria.objects.all()
     cntx["productCategories"] = productCategories
     return render(request, 'marca.html', cntx)
-  
+
+@login_required
+@permission_required('is_superuser')  
 def viewReadMarca(request, id):
     cntx = {}
     try:
@@ -404,7 +440,7 @@ def viewCliente(request):
             elif len(telefono) < 8:
                 cntx = {'error': 'El telefono del usuario debe tener como minimo 8 caracteres'}
             elif id < 1:
-                Usuario.objects.create(rut = rut , dv = dv, nombre = nombre, apellido = apellido, fechaNac = fechaNac, password = password, email = email, direccion = direccion, telefono = telefono, tipoDeUsuario = 3)
+                Usuario.objects.create(rut = rut , dv = dv, nombre = nombre, apellido = apellido, fechaNac = fechaNac, password = password, email = email, direccion = direccion, telefono = telefono, tipoDeUsuario = 2)
                 cntx = {'mensaje': 'Los datos fueron guardados correctamente'}
             else:
                 fila = Usuario.objects.get(pk = id)
@@ -424,6 +460,8 @@ def viewCliente(request):
     cntx["productCategories"] = productCategories
     return render(request, 'cliente.html', cntx)
 
+@login_required
+@permission_required('is_superuser')
 def viewApi(request):
     cntx = {}
     productCategories = Categoria.objects.all()

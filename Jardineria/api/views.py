@@ -6,8 +6,8 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework import status
 
-from crud.models import Donacion, Producto
-from api.serializers import DonacionSerializer, ProductoSerializer
+from crud.models import Donacion, Producto, Usuario
+from api.serializers import DonacionSerializer, ProductoSerializer, UsuarioSerializer
 
 @csrf_exempt
 @api_view(['POST', 'GET'])
@@ -92,3 +92,45 @@ def apiProductoDetalle(request, buscarId):
     elif request.method == 'DELETE':
         producto.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)   
+
+@csrf_exempt
+@api_view(['POST', 'GET'])
+def apiUsuario(request):
+    if request.method == 'GET':
+        usuario = Usuario.objects.all()
+        serializer = UsuarioSerializer(usuario, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = UsuarioSerializer(data = data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+    
+@csrf_exempt
+@api_view(['GET', 'PUT', 'DELETE'])
+def apiUsuarioDetalle(request, usrname):
+    try:
+        usuario = Usuario.objects.get(username=usrname)
+
+    except:
+        return Response(status = status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = UsuarioSerializer(usuario)
+        return Response(serializer.data)
+
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = UsuarioSerializer(usuario, data= data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_202_ACCEPTED)
+        return Response(serializer.data, status = status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        usuario.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)   
+
