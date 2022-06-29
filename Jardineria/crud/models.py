@@ -1,4 +1,4 @@
-from datetime import time
+from datetime import time, timedelta
 from time import timezone
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -33,6 +33,20 @@ class Usuario(AbstractUser):
 
     def __str__(self):
         return self.rut
+
+class Boleta(models.Model):
+    idBoleta = models.IntegerField()
+    username = models.TextField(max_length=20)
+    nomProducto = models.TextField(max_length=30)
+    cantidad = models.IntegerField()
+    estado = models.TextField(max_length=20)
+    fecEmision = models.DateField(default=timezone.now)
+    fecEntrega = models.DateField(default=(timezone.now() + timedelta(4)))
+    direccion = models.TextField(max_length=50)
+    total = models.IntegerField()
+
+    def __str__(self):
+        return self.username
 
 class Producto(models.Model):
     codigoProducto = models.IntegerField()

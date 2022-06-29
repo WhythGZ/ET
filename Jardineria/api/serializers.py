@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from crud.models import Donacion, Producto, Usuario
+from crud.models import Donacion, Producto, Usuario, Boleta
 
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,4 +25,17 @@ class UsuarioSerializer(serializers.ModelSerializer):
         fields = [
         'username', 
         'suscrito'
+        ]
+
+class BoletaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Boleta
+        fields = [
+        'idBoleta', 
+        'username',
+        'estado',
+        'fecEmision',
+        'fecEntrega',
+        'direccion',
+        'total',
         ]

@@ -2,10 +2,10 @@
 {% extends "index.html" %}
 {# definir contenidos que tendrán cada uno de los bloques #}
 {% block script %} 
-<script src="/static/javascript/historial.js"></script>
+<script src="/static/javascript/estado.js"></script>
 {% endblock %}
 {% block tituloPestana %} 
-    CRUD Historial
+    CRUD Estado
 {% endblock %}
 {% block tituloPagina %} 
     <div class="text-center mt-5">
@@ -28,7 +28,7 @@
 <br>
 <div class="border shadow mt-4 p-4 container col-12">
     <div class="row"> 
-        <h3 class="h3 text-center text-dark">Historial de Compras de {{user.username}}</h3>
+        <h3 class="h3 text-center text-dark">Mis Compras----------------</h3>
         {%if request.session.historial.items%}
         {%for key, value in request.session.historial.items%}
         <input type="text" hidden class="txtId" value="{{value.producto_id}}">

@@ -6,8 +6,50 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework import status
 
-from crud.models import Donacion, Producto, Usuario
-from api.serializers import DonacionSerializer, ProductoSerializer, UsuarioSerializer
+from crud.models import Donacion, Producto, Usuario, Boleta
+from api.serializers import DonacionSerializer, ProductoSerializer, UsuarioSerializer, BoletaSerializer
+
+
+@csrf_exempt
+@api_view(['POST', 'GET'])
+def apiBoleta(request):
+    if request.method == 'GET':
+        boleta = Boleta.objects.all()
+        serializer = BoletaSerializer(boleta, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = BoletaSerializer(data = data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+@api_view(['GET', 'PUT', 'DELETE'])
+def apiBoletaDetalle(request, buscarId):
+    try:
+        id = int(buscarId)
+        boleta = Boleta.objects.get(pk=id)
+
+    except:
+        return Response(status = status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = BoletaSerializer(boleta)
+        return Response(serializer.data)
+
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = BoletaSerializer(boleta, data= data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_202_ACCEPTED)
+        return Response(serializer.data, status = status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        boleta.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)   
 
 @csrf_exempt
 @api_view(['POST', 'GET'])
