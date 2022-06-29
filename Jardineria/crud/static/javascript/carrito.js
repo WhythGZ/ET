@@ -43,6 +43,7 @@ $(function()
                         }).fail(function (msg) {
                             console.log('FAIL');
                         });
+                    
                     $(location).prop('href', url);
                 };
             });

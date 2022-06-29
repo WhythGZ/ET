@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from crud import views
 from shopyCart.views import agregar_producto, eliminar_producto, limpiar_carrito, restar_producto, restar_producto_n
+from historial.views import h_agregar_producto, h_eliminar_producto, h_limpiar_historial, h_restar_producto, h_restar_producto_n
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,4 +37,9 @@ urlpatterns = [
     path('remove/<int:producto_id>/<int:n>/', restar_producto_n, name="SubN"),
     path('delete/<int:producto_id>/', eliminar_producto, name="Del"),
     path('clear/', limpiar_carrito, name="CLS"),
+    path('historialAdd/<int:producto_id>/', h_agregar_producto, name="HAdd"),
+    path('historialRemove/<int:producto_id>/', h_restar_producto, name="HSub"),
+    path('historialRemove/<int:producto_id>/<int:n>/', h_restar_producto_n, name="HSubN"),
+    path('historialDelete/<int:producto_id>/', h_eliminar_producto, name="HDel"),
+    path('historialClear/', h_limpiar_historial, name="HCLS"),
 ]

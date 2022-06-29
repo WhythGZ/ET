@@ -52,14 +52,28 @@
                                     {% endif %}
                                 </select>
                             </div>
-                        <div class="row">
-                            <div class="offset-md-4 mt-4 col-md-2">
-                                <input type="submit" class="p-2 btn btn-outline-success btnEnviar form-control" value="Donar">
+                            {%if user.suscrito%}
+                        <div class="offset-md-2 row">
+                            <div class="mt-4 col-md-3">
+                                <button class="p-2 btn btn-outline-success btnEnviar form-control">Donar</button>
                             </div>
-                            <div class="mt-4 col-md-2">
+                            <div class="mt-4 col-md-3">
+                                <input type="reset" class="p-2 btn btn-outline-danger form-control" value="Limpiar">
+                            </div>
+                                <div class="mt-4 col-md-3">
+                                    <button class="p-2 btn btn-outline-info btnDeSus form-control">Cancelar Suscripcion</button>
+                                </div>
+                        </div>
+                        {%else%}
+                        <div class="offset-md-4 row">
+                            <div class="mt-4 col-md-3">
+                                <button class="p-2 btn btn-outline-success btnEnviar form-control">Donar</button>
+                            </div>
+                            <div class="mt-4 col-md-3">
                                 <input type="reset" class="p-2 btn btn-outline-danger form-control" value="Limpiar">
                             </div>
                         </div>
+                        {%endif%}
                     </form>
                 </div>
             </div>

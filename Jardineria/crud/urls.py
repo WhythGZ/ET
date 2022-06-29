@@ -13,4 +13,5 @@ urlpatterns = [
     path('producto/<int:id>/', views.viewReadProducto, name="producto"),
     path('usuario', views.viewUsuario, name="usuario"),
     path('usuario/<int:id>/', views.viewReadUsuario, name="usuario"),
+    path('historial', views.viewHistorial, name="historial"),
     ]

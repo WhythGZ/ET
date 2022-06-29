@@ -486,6 +486,12 @@ def viewInicio(request):
     cntx["productCategories"] = productCategories
     return render(request, 'inicio.html', cntx)
 
+def viewHistorial(request):
+    cntx = {}
+    productCategories = Categoria.objects.all()
+    cntx["productCategories"] = productCategories
+    return render(request, 'historial.html', cntx)
+
 @login_required
 def viewDonar(request):
     cntx = {}

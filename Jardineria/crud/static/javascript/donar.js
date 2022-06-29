@@ -38,10 +38,9 @@ $(function() // public static void main (JAVa)
                 $.ajax({
                     url: "http://127.0.0.1:8000/api/apiDonacion",
                     method: 'POST',
-                    dataType: 'json',
+                    dataType: 'json',    
                     data: JSON.stringify(data),
                 }).done(function () {
-                    console.log('SUCCESS');
                     $.getJSON("http://127.0.0.1:8000/api/apiUsuarioDetalle/"+Username+"/", function(getUser) {
                         let usuario = getUser;
                         let data2 = {
@@ -54,32 +53,59 @@ $(function() // public static void main (JAVa)
                         dataType: 'json',
                         data: JSON.stringify(data2),
                     }).done(function () {
+                        console.log('SUCCESS PUT');
+                    }).fail(function (msg) {
+                        console.log('FAIL PUT');
+                    });
+                }).done(function () {
+                    console.log('SUCCESS 2ndMain');
+                }).fail(function (msg) {
+                    console.log('FAIL 2ndMain');
+                });
+                }).fail(function (msg) {
+                    console.log('FAIL POST');
+                });
+            }).done(function () {
+                console.log('SUCCESS MAIN');
+            }).fail(function (msg) {
+                console.log('FAIL MAIN');
+            });
+    alert('');
+        };
+    alert('');
+    });
+    $(".btnDeSus").click(function()
+    {
+            let Username = $(".txtUser").val();
+        $.getJSON("http://127.0.0.1:8000/api/apiUsuarioDetalle/"+Username+"/", function(getUser) {
+                        let usuario = getUser;
+                        let data3 = {
+                            "username": usuario.username,
+                            "suscrito": false
+                        }
+                    $.ajax({
+                        url: "http://127.0.0.1:8000/api/apiUsuarioDetalle/"+Username+"/",
+                        method: 'PUT',
+                        dataType: 'json',
+                        data: JSON.stringify(data3),
+                    }).done(function () {
                         console.log('SUCCESS');
+                        alert("Suscripcion Cancelada");
                     }).fail(function (msg) {
                         console.log('FAIL');
                     });
+                }).done(function () {
+                    console.log('SUCCESS');
+                    alert("Suscripcion Cancelada");
                 }).fail(function (msg) {
                     console.log('FAIL');
                 });
-            }).fail(function() {
-                console.log('Error al consumir la API!')
-            });
         });
-        };
-        alert("");
-    });
     let numero = '1234567890';
     $(".txtDonacion").keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);
         if(numero.indexOf(caracter) < 0)
             return false;
-    })
-    let letras = "qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ' ";
-    $(".txtNombre").keypress(function(e)
-    {
-        let caracter = String.fromCharCode(e.which);
-        if(letras.indexOf(caracter) < 0)
-            return false;
-    })
+    });
 });

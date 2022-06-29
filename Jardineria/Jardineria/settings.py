@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crud',
     'api',
     'shopyCart',
+    'historial',
 ]
 
 AUTH_USER_MODEL = 'crud.Usuario'
@@ -76,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'shopyCart.context_processor.total_carrito',
+                'historial.context_processor.total_historial',
             ],
         },
     },

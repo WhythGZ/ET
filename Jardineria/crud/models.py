@@ -33,7 +33,7 @@ class Usuario(AbstractUser):
 
     def __str__(self):
         return self.rut
-    
+
 class Producto(models.Model):
     codigoProducto = models.IntegerField()
     nombreProducto = models.TextField(max_length=100)

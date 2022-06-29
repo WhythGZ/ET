@@ -48,7 +48,11 @@
           <div class="offset-md-1 col-md-10 text-center">
             <span class="text-break text-dark mt-2">{{producto.descripcionProducto}}</span>
           </div>
+          {%if user.suscrito%}
+          <h5 class="mt-1 text-secondary text-center PriceDesc">${{producto.precioProducto}}</h5>
+          {%else%}
           <h5 class="mt-1 text-secondary text-center Price">${{producto.precioProducto}}</h5>
+          {%endif%}
           <div class="row">
             <div class="offset-md-4">
               <a href="{%url 'Add' producto.id%}">

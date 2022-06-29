@@ -32,12 +32,12 @@ $(function()
         }
         else if(!desc){
             alert("Debe especificar la descripción del producto");
-            $(".txtNombre").focus();
+            $(".txtDesc").focus();
             return false;
         }
         else if(desc.length < 10){
             alert("La descripción del producto debe tener como minimo 10 caracteres");
-            $(".txtNombre").focus();
+            $(".txtDesc").focus();
             return false;
         }
         else if (categoria == '0'){
