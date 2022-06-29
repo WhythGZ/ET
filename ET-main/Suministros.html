@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardineria</title>
+    <link rel="shortcut icon" href="resources/icon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="categorias.js"></script>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">
+                  <img src="resources/icon.png" width="35" height="35" alt="icon">Jardineria
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categorias
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item active" href="Suministros.html">Suministros</a></li>
+                      <li><a class="dropdown-item" href="Herramientas.html">Herramientas</a></li>
+                      <li><a class="dropdown-item" href="Maceteros.html">Maceteros</a></li>
+                      <li><a class="dropdown-item" href="Flores.html">Flores</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Usuario
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="inicio.html">Iniciar Sesion</a></li>
+                      <li><a class="dropdown-item " href="registro.html">Registrarse</a></li>
+                      <li><a class="dropdown-item" href="formAdmin.html">Registrarse ADMIN</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Otros
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="api.html" tabindex="-1" aria-disabled="true">Precio USD</a></li>
+                      <li><a class="dropdown-item" href="formProducto.html" tabindex="-1" aria-disabled="true">Producto</a></li>
+                      <li><a class="dropdown-item" href="tipo_pago.html" tabindex="-1" aria-disabled="true">Tipos de Pago</a></li>
+                      <li><a class="dropdown-item" href="categoria.html" tabindex="-1" aria-disabled="true">Categorias</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mi Perfil</a>
+                  </li>
+                </ul>
+              </div>
+              <form class="d-flex">
+                <a class="m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" role="button"
+                ><svg class="bi" width="22" height="22" fill="currentColor">
+                  <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+                </svg></a>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Carrito de compras</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    Usted lleva: 
+                  </div>
+                  <button class="btn btn-info">Pagar</button>
+                  </div>
+              </form>
+            </div>
+          </nav>    
+    </header>
+    <article>
+      <section>
+        <div class="container">
+          <div class="row mt-3">
+            <div class="offset-md-10 col-md-1">
+              <button class="btnCLP btn btn-outline-dark form-control">CLP</button>
+            </div>
+            <div class="col-md-1">
+              <button class="btnUSD btn btn-outline-success form-control">USD</button>
+            </div>
+          </div>
+          <h3 class="">Suministros</h3>
+          <p class="text-secondary">Encuentra diversos tipos de productos que te ayudaran a mantener a tus plantas fuertes y saludables.</p>
+          <div class="row mt-3">
+            <div class="col-md-3 border m-4">
+              <h5 class="text-dark text-center mt-3">Fertilizante</h5><a href="producto.html">
+            <img src="resources/Fertilizante-Hortalizas.jpg" width="250" height="250" alt=""> 
+            </a>           
+            <p class="text-center text-dark mt-2">Los fertilizantes son sustancias ricas en nutrientes que se utilizan para mejorar las características del suelo para un mayor desarrollo de los cultivos agrícolas</p>
+            <h5 class="text-secondary text-center Price">$11.999</h5>
+            <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+          </div>
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Tierra de hojas</h5><a href="producto.html">
+            <img src="resources/tierradehojas.jpg" width="250" height="250" alt="">
+            </a>
+            <p class="text-center text-dark mt-3">Producto Premium especialmente formulado para iniciar tus cultivos de hortalizas en el hogar proporcionando el medio ideal para la germinación de tus semillas preferidas. Contiene una carga de fertilizante que ayuda en el establecimiento de los inicios del cultivo. Contiene pH equilibrado y un agente humectante que ayuda a una mayor retención de humedad. -Producto homogéneo y de gran pureza, libre de insectos y agentes patógenos.</p>
+            <h5 class="text-secondary text-center Price">$9.999</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+          </div>
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Espuma floral</h5><a href="producto.html">
+            <img src="resources/espuma-floral.jpg" width="250" height="250" alt="">
+            </a>
+            <p class="text-center text-dark mt-3">Está hecho de Basalto y unido con tecnología Ecose, un tipo de sacarosa. Puede utilizarse para flores tanto frescas como secas y de seda. Puedes cortar o romper pedazos de piezas desechadas o de los bloques donde las flores han terminado de florecer. Puedes usarla como substituto de la tierra en una maceta o florero.</p>
+            <h5 class="text-secondary text-center Price">$1.790</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+          </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-3 border m-4">
+              <h5 class="text-dark text-center mt-3">Espuma agricola</h5><a href="producto.html">
+              <img src="resources/espuma-agricola.png" width="250" height="250" alt="">
+              </a>
+            <p class="text-center text-dark mt-3">El foamy agrícola es una espuma fenólica utilizada en la producción de hortalizas, la cual actúa como un medio físico para dar soporte a la planta. Logra un balance ideal de agua y aire conteniendo un 80% de agua y un 20% de aire en su interior, lo que permite que las raíces se desarrollen adecuadamente.</p>
+            <h5 class="text-secondary text-center Price">$13.990</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+            </div>
+            <div class="col-md-3 border m-4">
+              <h5 class="text-dark text-center mt-3">Aspersor</h5><a href="producto.html">
+              <img src="resources/aspersor.jpg" width="250" height="250" alt="">
+              </a>
+            <p class="text-center text-dark mt-3">El uso de un aspersor facilita el riego en áreas amplias de manera constante y homogénea. Modelo 130319 posee clips y retenes para ajustarse y regular el área de riego, tiene un ángulo de 360°.</p>
+            <h5 class="text-secondary text-center Price">$2.990</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+            </div>
+            <div class="col-md-3 border m-4">
+              <h5 class="text-dark text-center mt-3">Manguera</h5><a href="producto.html">
+              <img src="resources/mangera.jpg" width="250" height="250" alt="">
+              </a>
+            <p class="text-center text-dark mt-3">Lleva el agua a cualquier lugar con el uso de una manguera. Las dimensiones de ésta dependerán de los espacios donde se suela trabajar. El modelo M12S100 cuenta con un tejido especialmente diseñado para evitar deformaciones y aumentar la vida útil y resistencia de las mangueras.</p>
+            <h5 class="text-secondary text-center Price">$11.990</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+          </div>
+        </div>
+          <div class="row mt-3">
+            <div class="col-md-3 border m-4">
+              <h5 class="text-dark text-center mt-3">kit de riego</h5><a href="producto.html">
+              <img src="resources/product.jpg" width="250" height="250" alt="">
+              </a>
+            <p class="text-center text-dark mt-3">Sistema diseñado para satisfacer las necesidades de los pequeños agricultores que quieren regar pequeñas zonas como por ejemplo huertos. RECOMENDADO PARA: La conservación del agua. Mejorar gestión del agua y de cultivos, incluso en condiciones meteorológicas adversas.</p>
+            <h5 class="text-secondary text-center Price">$19.990</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+            </div>
+            <div class="col-md-3 border m-4">
+              <h5 class="text-dark text-center mt-3">Vitamina B2</h5><a href="producto.html">
+              <img src="resources/vitaminc.jpeg" width="250" height="250" alt="">
+              </a>
+            <p class="text-center text-dark mt-3">La producción y secreción de vitamina B2 o riboflavina y algunos de sus derivados por las raíces de algunas especies vegetales facilita la toma de hierro y, por tanto, su adaptación a ambientes pobres en este nutriente.</p>
+            <h5 class="text-secondary text-center Price">$4.990</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+            </div>
+            <div class="col-md-3 border m-4">
+              <h5 class="text-dark text-center mt-3">Perforador de manguera por goteo</h5><a href="producto.html">
+              <img src="resources/perforadorManguera.jpeg" width="250" height="250" alt="">
+              </a>
+            <p class="text-center text-dark mt-3">El perforador de orificios de tubería adopta material de aleación de alta calidad como cabezal de perforación, que puede ayudarlo eficazmente a abrir un orificio en la tubería para insertar un conector o boquilla.</p>
+            <h5 class="text-secondary text-center Price">$5.990</h5>
+                        <div class="row">
+            <div class="offset-md-4">
+            <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+            </svg></a></button>
+          </div>
+        </div>
+            </div>
+          </div>
+      </section>
+    </article>
+    <footer class="bg-dark text-center text-white p-1 mt-4">
+      <div class="container-fluid p-4 pb-0">
+        <section class="mb-4">
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+            ><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#facebook"/>
+            </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#twitter"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#google"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#instagram"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#linkedin"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#github"/>
+          </svg></a>
+        </div>
+        </section>
+      </div>
+      <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="https://google.com/">Jardineria.cl/</a>
+      </div>
+    </footer> 
+</body>
+</html>

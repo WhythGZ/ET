@@ -1,0 +1,12 @@
+db202203241312_high = (description= (retry_count=15)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=g4d6b3bf3067325_db202203241312_high.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+db202203241312_low = (description= (retry_count=15)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=g4d6b3bf3067325_db202203241312_low.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+db202203241312_medium = (description= (retry_count=15)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=g4d6b3bf3067325_db202203241312_medium.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+db202203241312_tp = (description= (retry_count=15)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=g4d6b3bf3067325_db202203241312_tp.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+db202203241312_tpurgent = (description= (retry_count=15)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=g4d6b3bf3067325_db202203241312_tpurgent.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+
+

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardineria</title>
+    <link rel="shortcut icon" href="resources/icon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="categorias.js"></script>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">
+                  <img src="resources/icon.png" width="35" height="35" alt="icon">Jardineria
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categorias
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="Suministros.html">Suministros</a></li>
+                      <li><a class="dropdown-item" href="Herramientas.html">Herramientas</a></li>
+                      <li><a class="dropdown-item" href="Maceteros.html">Maceteros</a></li>
+                      <li><a class="dropdown-item active" href="Flores.html">Flores</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Usuario
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="inicio.html">Iniciar Sesion</a></li>
+                      <li><a class="dropdown-item " href="registro.html">Registrarse</a></li>
+                      <li><a class="dropdown-item" href="formAdmin.html">Registrarse ADMIN</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Otros
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="api.html" tabindex="-1" aria-disabled="true">Precio USD</a></li>
+                      <li><a class="dropdown-item" href="formProducto.html" tabindex="-1" aria-disabled="true">Producto</a></li>
+                      <li><a class="dropdown-item" href="tipo_pago.html" tabindex="-1" aria-disabled="true">Tipos de Pago</a></li>
+                      <li><a class="dropdown-item" href="categoria.html" tabindex="-1" aria-disabled="true">Categorias</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mi Perfil</a>
+                  </li>
+                </ul>
+              </div>
+              <form class="d-flex">
+                <a class="m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" role="button"
+                ><svg class="bi" width="22" height="22" fill="currentColor">
+                  <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+                </svg></a>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Carrito de compras</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    Usted lleva: 
+                  </div>
+                  <button class="btn btn-info">Pagar</button>
+                  </div>
+              </form>
+            </div>
+          </nav>    
+    </header>
+    <article>
+      <section>
+        <div class="container">
+          <div class="row mt-3">
+            <div class="offset-md-10 col-md-1">
+              <button class="btnCLP btn btn-outline-dark form-control">CLP</button>
+            </div>
+            <div class="col-md-1">
+              <button class="btnUSD btn btn-outline-success form-control">USD</button>
+            </div>
+          </div>
+        <h3 class="">Flores</h3>
+        <p class="text-secondary">Encuentra todo tipo de flores para tu jardín: Rosas, Hortensias, Orquideas, Nardos, Crisantemos, Claveles, Gardenias, Flores de Cerezo, Tulipanes y más.</p>
+        <div class="row mt-3">
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Rosas</h5><a href="producto.html">
+          <img src="resources/rosa.jpg" width="250" height="250" alt="">            
+          </a>
+          <p class="text-center text-dark mt-2">La Rosa es considerada la flor más bonita del mundo, por ello se dice que es ‘la reina del jardín’. Es una de las flores más famosas a nivel internacional, las hay en diferentes tamaños y colores y, además están súper repartidas por todo el mundo. Son flores que sirven para decorar eventos, para crear perfumes… ¡y mucho más!.</p>
+          <h5 class="text-secondary text-center Price">$33.990</h5>
+          <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+        </div>
+        <div class="col-md-3 border m-4">
+          <h5 class="text-dark text-center mt-3">Hortensias</h5><a href="producto.html">
+          <img src="resources/Hortensia2.jpg" width="250" height="250" alt="">
+          </a>
+          <p class="text-center text-dark mt-3">Estas flores son nativas del sur de Asia y, también son unas flores muy conocidas a nivel mundial. Es una flor de indudable belleza y muy utilizada también en decoración. Además, la hortensia es una de las flores preferidas para la creación de bouquets puesto que aporta mucho volumen y textura.</p>
+          <h5 class="text-secondary text-center Price">$18.990</h5>
+                      <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+        </div>
+        <div class="col-md-3 border m-4">
+          <h5 class="text-dark text-center mt-3">Orquideas</h5><a href="producto.html">
+          <img src="resources/Orquidea.jpg" width="250" height="250" alt="">
+          </a>
+          <p class="text-center text-dark mt-3">La Orquídea es una Pricea flor que se utiliza mucho para decoración y, también, como regalo.  Es una flor muy peculiar y que se diferencia fácilmente por la forma de sus hojas.  Existen cerca de 25.000 especies diferentes, y se encuentran en muchas partes del mundo, a excepción de las zonas que tienen climas desérticos y polares.</p>
+          <h5 class="text-secondary text-center Price">$24.990</h5>
+                      <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+        </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Nardos</h5><a href="producto.html">
+            <img src="resources/Nardo.jpg" width="250" height="250" alt="">
+            </a>
+          <p class="text-center text-dark mt-3">El Nardo es una flor conocida como ‘la vara de San José’, perteneciente a la familia de las valerianas. Su belleza la ha convertido en una opción ideal para crear arte floral: desde centros de mesa a bouquets, entre muchas otras cosas. Es una flor muy típica en las bodas y en la decoración de las iglesias, sobre todo los nardos blancos.</p>
+          <h5 class="text-secondary text-center Price">$8.990</h5>
+          <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+          </div>
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Crisantemos</h5><a href="producto.html">
+            <img src="resources/Crisantemo.jpg" width="250" height="250" alt="">
+            </a>
+          <p class="text-center text-dark mt-3">El Crisantemo es una flor  nativa de Asia y muy especial puesto que forma parte de las ‘Cuatro flores Junzi’. Hay muchas variedades de crisantemos y puedes encontrarlos en muchos colores diferentes: lilas, blancos, rosas, etcétera.  Es una de las flores más utilizadas en la decoración de estilo boho chic.</p>
+          <h5 class="text-secondary text-center Price">$11.990</h5>
+                      <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+          </div>
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Claveles</h5><a href="producto.html">
+            <img src="resources/Clavel.jpg" width="250" height="250" alt="">
+            </a>
+          <p class="text-center text-dark mt-3">El Clavel no solo es una de las flores más bonitas del mundo, también es una de las más famosas. Se cultiva en casi todos los continentes: América, Europa, Asia y África. Actualmente se conocen cinco tipos de claveles: el común, el poeta, el chino, el coronado y el de roca. En relación a sus usos cabe señalar la ornamentación.</p>
+          <h5 class="text-secondary text-center Price">$6.990</h5>
+                      <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+        </div>
+      </div>
+        <div class="row mt-3">
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Gardenias</h5><a href="producto.html">
+            <img src="resources/Gardenia.jpg" width="250" height="250" alt="">
+            </a>
+          <p class="text-center text-dark mt-3">La Gardenia es una de las flores más bonitas para regalar. Esta flor es originaria de China y la puedes encontrar en multitud de colores. Llama especialmente la atención su sutileza y sus hojas brillantes y lisas.</p>
+          <h5 class="text-secondary text-center Price">$3.990</h5>
+                      <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+          </div>
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Flores de Cerezo</h5><a href="producto.html">
+            <img src="resources/Flor_de_cerezo.jpg" width="250" height="250" alt="">
+            </a>
+          <p class="text-center text-dark mt-3">La flor de Cerezo, aunque no es la flor oficial, es una de las flores más importantes en la cultura japonesa. A los árboles que dan esta flor se les conoce como sakura. Al igual que las flores anteriores, la flor de cerezo se puede encontrar de diferentes colores en la naturaleza, aunque los colores más habituales son el rosa y el blanco.</p>
+          <h5 class="text-secondary text-center Price">$54.990</h5>
+                      <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+          </div>
+          <div class="col-md-3 border m-4">
+            <h5 class="text-dark text-center mt-3">Tulipanes</h5><a href="producto.html">
+            <img src="resources/tulipan2.jpg" width="250" height="250" alt="">
+            </a>
+          <p class="text-center text-dark mt-3">El tulipán es uno de los principales símbolos de Holanda. Es más, Holanda es conocido como ‘el país de los tulipanes’. Es una flor con una simetría casi perfecta. Estas flores además, simbolizan la alegría, el amor y la llegada de la primavera, aunque su gran variedad de colores hace que los símbolos y significado de esta flor se amplíen considerablemente.</p>
+          <h5 class="text-secondary text-center Price">$34.990</h5>
+                      <div class="row">
+          <div class="offset-md-4">
+          <button type="button" class="btn-outline-dark m-3 col-md-2"><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#cart4"/>
+          </svg></a></button>
+        </div>
+      </div>
+          </div>
+        </div>
+      </section>
+    </article>
+    <footer class="bg-dark text-center text-white p-1 mt-4">
+      <div class="container-fluid p-4 pb-0">
+        <section class="mb-4">
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+            ><svg class="bi" width="22" height="22" fill="currentColor">
+              <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#facebook"/>
+            </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#twitter"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#google"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#instagram"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#linkedin"/>
+          </svg></a>
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"
+          ><svg class="bi" width="22" height="22" fill="currentColor">
+            <use xlink:href="resources/bootstrap-icons/bootstrap-icons.svg#github"/>
+          </svg></a>
+        </div>
+        </section>
+      </div>
+      <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="https://google.com/">Jardineria.cl/</a>
+      </div>
+    </footer> 
+</body>
+</html>
